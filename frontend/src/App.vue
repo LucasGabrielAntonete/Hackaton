@@ -1,8 +1,9 @@
 <script setup>
+import Header from '@/components/template/Header.vue'
 </script>
 
 <template>
-<header>Header</header>
+<Header></Header>
 <main>Main</main>
 <footer>Footer</footer>
 </template>
