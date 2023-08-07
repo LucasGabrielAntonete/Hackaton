@@ -1,9 +1,7 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+ <h1>flfas</h1>
+ <button @click="$router.push({name: 'About'})"> Ir para about</button>
 </template>

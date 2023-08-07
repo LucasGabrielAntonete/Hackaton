@@ -1,13 +1,28 @@
 <script setup>
-import Header from '@/components/template/Header.vue'
+
 </script>
 
 <template>
-<Header></Header>
-<main>Main</main>
-<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">aaaaa</button>
-<footer>Footer</footer>
+
+<aside>
+
+    <nav class=" login">
+    <router-link to="/" > home</router-link>
+    <router-link  to="/About"> about</router-link>
+    </nav>
+    
+
+</aside>
+        <main>
+            <router-view />
+        </main>
+
+    
 </template>
 
+
 <style scoped>
+*{
+    background-color: antiquewhite;
+}
 </style>
