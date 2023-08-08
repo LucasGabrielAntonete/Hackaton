@@ -4,15 +4,20 @@
 
 <template>
 
-<aside>
-
-    <nav class=" login">
+<header>
+  <nav class=" login">
     <router-link to="/" > home</router-link>
     <router-link  to="/About"> about</router-link>
+    <router-link to="/PagInicio">Pagina Inicial</router-link>
     </nav>
+
+    <PagInicio />
+  </header>
+
+    
     
 
-</aside>
+
         <main>
             <router-view />
         </main>
