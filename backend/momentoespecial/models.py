@@ -17,4 +17,4 @@ class produto(models.Model):
     preco = models.FloatField()
     id_categoria = models.ForeignKey(categoria, on_delete=models.CASCADE)
     id_tamanho = models.ForeignKey(tamanho, on_delete=models.CASCADE)
-    imagem = models.ImageField(upload_to='produtos', null=True, blank=True)
+    imagem = models.ImageField(upload_to='produto', null=True, blank=True)
