@@ -48,3 +48,19 @@ class pajens(models.Model):
     def __str__(self):
         return self.nome
     
+
+class vestido(models.Model):
+    id = models.IntegerField(primary_key=True)
+    festa = models.ForeignKey(
+        festa, on_delete=models.PROTECT, related_name="vestido_festa")
+    debutantes = models.ForeignKey(
+        debutantes, on_delete=models.PROTECT, related_name="vestido_debutantes")
+    noivas = models.ForeignKey(
+        noivas, on_delete=models.PROTECT, related_name="vestido_noivas")
+    damas = models.ForeignKey(
+        damas, on_delete=models.PROTECT, related_name="vestido_damas")
+    pajens = models.ForeignKey(
+        pajens, on_delete=models.PROTECT, related_name="vestido_pajens")
+    
+    def __str__(self):
+        return self.id
