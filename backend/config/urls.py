@@ -29,5 +29,8 @@ router.register(r"produto", produtoViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("api/media/", include(uploader_router.urls)),
+        
 ]
+
 urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)
+
