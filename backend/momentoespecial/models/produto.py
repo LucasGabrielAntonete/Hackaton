@@ -1,21 +1,7 @@
 from django.db import models
 from uploader.models import Image
-
-
-class tamanho(models.Model):
-    tamanho = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.tamanho
-
-
-class categoria(models.Model):
-    id_categoria = models.AutoField(primary_key=True)
-    categoriaNome = models.CharField(max_length=50)
-
-    def __str__(self):
-        return self.categoriaNome
-
+from models.categorias import categoria
+from models.tamanho import tamanho
 
 class produto(models.Model):
     id_produto = models.AutoField(primary_key=True)
