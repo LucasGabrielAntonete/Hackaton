@@ -1,18 +1,20 @@
 <script setup>
-
+import TelaLogin from '@/views/TelaLogin.vue';
 </script>
 
 <template>
 
 <header>
   <nav class=" login">
-    <router-link to="/" > home</router-link>
-    <router-link  to="/About"> about</router-link>
-    <router-link to="/PagInicio">Pagina Inicial</router-link>
+    <router-link to="/" > Home</router-link>    
+    <router-link to="/TelaLogin">Login</router-link>
+    
     </nav>
+    <TelaLogin />
 
     <PagInicio />
   </header>
+
 
     
     
