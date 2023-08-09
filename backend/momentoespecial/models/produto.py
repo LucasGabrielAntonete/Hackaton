@@ -1,7 +1,7 @@
 from django.db import models
 from uploader.models import Image
-from models.categorias import categoria
-from models.tamanho import tamanho
+from .categorias import categoria
+from .tamanho import tamanho
 
 class produto(models.Model):
     id_produto = models.AutoField(primary_key=True)
