@@ -1,7 +1,6 @@
 <script setup></script>
 
 <template>
-    <h1>Momento Especial</h1>
-    <button @click="$router.push({name:'Home'})"> Ir para Contato</button>
+    <h1>essa pagina de about</h1>
         
 </template>

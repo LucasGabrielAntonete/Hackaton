@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutVew from '../views/AboutView.vue'
+import AboutView from '../views/AboutView.vue'
+import TelaLoginView from '../views/TelaLogin.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -13,7 +14,13 @@ const router = createRouter({
       path: '/about',
       name: 'about',
    
-      component: AboutVew
+      component: AboutView
+    },
+    {
+      path: '/TelaLogin',
+      name: 'Tela Login',
+   
+      component: TelaLoginView
     }
   ]
 })
