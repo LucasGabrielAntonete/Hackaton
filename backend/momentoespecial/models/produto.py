@@ -7,9 +7,10 @@ class produto(models.Model):
     id_produto = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=50)
     descricao = models.CharField(max_length=200)
+    quantidade = models.IntegerField(default=1,  null=True, blank=True)
     preco = models.FloatField()
     categoriaNome = models.ForeignKey(categoria, on_delete=models.CASCADE)
-    id_tamanho = models.ForeignKey(tamanho, on_delete=models.CASCADE)
+    tamanho = models.ManyToManyField(tamanho, related_name="tamanhos")
     capa = models.ForeignKey(
         Image,
         related_name="+",
@@ -18,3 +19,6 @@ class produto(models.Model):
         blank=True,
         default=None,
     )
+
+    def __str__(self):
+        return self.nome
