@@ -5,6 +5,7 @@ import HeaderVue from '@/components/HeaderVue.vue'
 <template>
 <HeaderVue></HeaderVue>
 
+
 </template>
 
 <style scoped>
