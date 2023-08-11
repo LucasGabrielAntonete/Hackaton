@@ -3,6 +3,7 @@
 </script>
 
 <template>
+<div class="app">
 <footer class="footer">
   <div class="float-container">
   <div class="float-child">
@@ -23,7 +24,7 @@
   <h3>Meios de Pagamento</h3>
 </div>
 </footer>
-
+</div>
 </template>
 
 
@@ -31,24 +32,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
 a{
-  color: inherit;
-}
-
-a:hover {
+  text-decoration: none;
   color: inherit;
 }
 
 footer{
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  margin: 0;
+  padding: 0;
 }
 .float-container{
   padding: 0;
 }
 
 .float-child{
-  text-decoration: none;
   width: 30%;
   float: left;
   padding: 20px;
@@ -69,9 +66,5 @@ footer{
   background-color: rgba(212, 186, 163, 1);
 }
 
-.payment-metods{
-  display: block;
-  float: inline-end;
 
-}
 </style>
