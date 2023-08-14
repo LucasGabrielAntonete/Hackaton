@@ -22,7 +22,7 @@ from rest_framework.routers import DefaultRouter
 from momentoespecial.views import produtoViewSet
 
 router = DefaultRouter()
-router.register(r"categorias", produtoViewSet)
+router.register(r"produtos", produtoViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
