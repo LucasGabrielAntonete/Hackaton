@@ -97,11 +97,22 @@
     </div>
   </header>
   <nav class="menu">
-    <h5>Início</h5>
-    <h5>Vestidos</h5>    
-    <h5>Promoções</h5>
-    <h5>Lançamentos</h5>
-  </nav>
+    <div class="component-nav">
+      <h5>Início</h5>
+    </div>
+    <div class="component-nav">
+      <h5>Vestidos</h5>
+    </div>
+    <div class="component-nav">
+      <h5>Promoções</h5>
+    </div>
+    <div class="component-nav">
+      <h5>Lançamentos</h5>
+    </div>
+  </nav> 
+  <!-- <div class="sticky top-0 bg-mantle shadow-lg ">
+      <div class="container gap-4 py-2 items-center min-w-full"></div>
+  </div> -->
 </template>
 
 <style scoped>
@@ -165,7 +176,7 @@ h5 {
   justify-content: center;
   background-color: rgba(212, 186, 163, 1);
   padding: 10px;
-  
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.19);
 }
 </style>
 
