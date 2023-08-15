@@ -6,50 +6,54 @@
     
    <main>
     <div><img 
-    class="Momento"
+      class="Momento"
+    
     src="./Momento.jpg" alt="">
 </div>
-
-   </main>
-     <section >
-        <div class="wrapper">
-<div class="curve curve-top">
-</div>
-<div class="curve curve-bottom">
-</div>
-</div>
+<section >
+      <div></div>
+      <div class="curve-top"> <h1>Quem Somos</h1></div>
+      
         
 
      </section>
         
+   </main>
+     
 
 </template>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,100&display=swap');
+
 .Momento{
-    width: 1950px;
-    height: 600px;
+  width: 1850px;
+  height:600px;
   
 }
-div.wrapper {
-      background-color:black;
-       width:500px;
-  }
 
-  div.curve {
-    background-color:white;
-    width:500px;
-    height:150px;
-  }
+h1{
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Lato', sans-serif;
+  font-style:italic;
+  
+}
+
+    
+  
+
+ 
 
   div.curve-top{   
-      border-bottom-left-radius:70%;
-      border-bottom-right-radius:70%;
-  }
 
-  div.curve-bottom {  
-      margin-top: 50px;
-      border-top-left-radius:70%;
+    width: 1950px;
+     height: 600px;
+     background-color:white;
+     border-top-left-radius:70%;
       border-top-right-radius:70%;
   }
+
+  
+  
 
 </style>
