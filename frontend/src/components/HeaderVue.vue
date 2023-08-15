@@ -96,6 +96,12 @@
       </div>
     </div>
   </header>
+  <nav class="menu">
+    <h5>Início</h5>
+    <h5>Vestidos</h5>    
+    <h5>Promoções</h5>
+    <h5>Lançamentos</h5>
+  </nav>
 </template>
 
 <style scoped>
@@ -107,20 +113,25 @@ header {
   justify-content: space-between;
   background-color: rgba(212, 186, 163, 1);
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   max-width: 100%;
 }
 h1 {
   font-family: 'Pinyon Script', cursive;
   font-size: 25px;
   margin-left: 40px !important;
-  margin: 0;
+  margin: 0;  
 }
-h4{
+h4 {
     font-family: 'Lato', sans-serif;
+    margin-left: 40px !important;
     margin: 0;
 }
-.logo{
+h5 {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+}
+.logo {
     text-align: center;
 }
 .search {
@@ -135,6 +146,7 @@ h4{
     background-color: rgba(212, 186, 163, 1);
     border: 0;
     font-family: 'Lato', sans-serif;
+    width: 200px;
 }
 .search-input:focus {
     box-shadow: 0 0 0 0;
@@ -144,11 +156,17 @@ h4{
   display: flex;
   margin-right: 40px;
 }
-.icon-heart, .icon-bag, .icon-user{
+.icon-heart, .icon-bag, .icon-user {
     padding: 15px;
+}
+.menu {
+  display: flex;
+  column-gap: 200px;
+  justify-content: center;
+  background-color: rgba(212, 186, 163, 1);
+  padding: 10px;
+  
 }
 </style>
 
-<!-- <div class="sticky top-0 bg-mantle shadow-lg ">
-    <div class="container gap-4 py-2 items-center min-w-full"></div>
-</div> -->
+
