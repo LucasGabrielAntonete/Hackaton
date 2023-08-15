@@ -139,6 +139,8 @@ REST_FRAMEWORK = {
     ),
 }
 
+AUTH_USER_MODEL = "usuario.Usuario"
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = "http://localhost:8000/media/"
