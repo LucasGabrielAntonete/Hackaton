@@ -27,7 +27,6 @@
       </div>
     </div>
   </div>
-  <!-- falta centralizar o btn -->
 </template>
 
 <style scoped>
