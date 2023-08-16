@@ -22,7 +22,9 @@
            de Joinville, dispomos de amplo estacionamento e espaço interior, para que você sinta-se muito confortável em estar conosco!"</p>
        </div></div>     
   
-      
+       <div> 
+        <img class="Mapa" src="./Maps.png" alt="">
+       </div>
         
 
      </section>
@@ -35,15 +37,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100;1,300;1,400&display=swap');
 
 .Momento{
-  width: 1850px;
+  width: 1900px;
   height:600px;
   
 }
 
 h1{
   text-align:center;
- font-size: 40px;
+ font-size: 50px;
  font-family: 'Lato', sans-serif;
+ font-style:italic;
+ letter-spacing: 2px;
+ font-weight: normal;
+ 
  
   
 }
@@ -51,17 +57,37 @@ h1{
   box-sizing: border-box;
   float: left;
   width: 50%;
-  padding: 15px;
-  text-align: center;
-  font-size: 20px;
-  margin-top: 60px;
+  height:  50px;
+  padding:150px;
+  text-align:justify;
+  font-size: 25px;
+  margin-top:1px;
+  font-family: 'Lato' , sans-serif;
+  
+  
+
 }
 .Linha{
 
   content: "";
-  display:flex;
+  display:contents;
   clear: both;
+
   
+}
+img{
+  width: 500px;
+  
+  
+}
+.Mapa{
+  box-sizing: border-box;
+  float: left;
+  width: 50%;
+  /* height:  50px; */
+  padding:150px;
+  margin-top:1px;
+  border-radius:50px;
 }
 
 
