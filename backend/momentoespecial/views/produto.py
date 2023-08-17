@@ -6,4 +6,3 @@ from momentoespecial.serializers import produtoSerializer
 class produtoViewSet(ModelViewSet):
     queryset = produto.objects.all()
     serializer_class = produtoSerializer
-    

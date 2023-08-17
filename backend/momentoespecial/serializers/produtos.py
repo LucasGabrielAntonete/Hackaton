@@ -17,7 +17,7 @@ class produtoSerializer(ModelSerializer):
         
         model = produto
         fields = '__all__'
-    
+        depth = 1
 
 
 
