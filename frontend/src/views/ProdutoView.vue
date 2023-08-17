@@ -1,41 +1,33 @@
 <script>
-import ProdutoApi from '@/api/produto'
-const produtoApi = new ProdutoApi()
+import axios from 'axios'
 export default {
   data() {
     return {
-      produtos: [],
-      produto: {}
-    }
+      produto: {},
+    };
   },
-  async created() {
-    this.produtos = await produtoApi.buscarTodosOsProdutos()
+  mounted() {
+    this.buscarProduto();
   },
   methods: {
-    async salvar() {
-      if (this.produto.id) {
-        await produtoApi.atualizarProduto(this.produto)
-      } else {
-        await produtoApi.adicionarProduto(this.produto)
+    async buscarProduto() {
+      const produtoId = this.$route.params.id;
+      try {
+        const resposta = await axios.get(`/produtos/${produtoId}/`);
+        this.produto = resposta.data;
+        console.log('Produto', this.produto);
+      } catch (error) {
+        console.error('Erro buscando ao buscar o produto.', error);
       }
-      this.produto = {}
-      this.produtos = await produtoApi.buscarTodosOsProdutos()
     },
-    editar(produto) {
-      Object.assign(this.produto, produto)
-    },
-  }
-}
+  },
+};
 </script>
+
 <template>
     <h1>Produtos</h1>
     <hr />
-    <hr />
-  <ul>
-    <li v-for="produto in produtos" :key="produto.id">
-      <span
-        >({{ produto.id_produto }}) - {{ produto.nome }} - {{ produto.preco }}</span
-      >
-    </li>
-  </ul>
+    <h1>{{ produto.nome }}</h1>
+    <img :src="produto.capa.file" alt="">
+
 </template>
