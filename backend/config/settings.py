@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 import os
 
@@ -117,6 +118,15 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
 }
+
+# settings.py
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=365),  # Tempo de vida do token de acesso (exemplo: 30 minutos)
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),      # Tempo de vida do token de refresh (exemplo: 1 dia)
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=7),  # Tempo após o qual um token de refresh pode gerar um novo
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

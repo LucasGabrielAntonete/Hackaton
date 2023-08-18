@@ -5,8 +5,20 @@ const config = {headers: { Authorization: `Bearer ${token}`,
 accept: 'application/json' }  }
 export default class ProdutoApi {
   async buscarTodosOsProdutos() {
-    const { data } = await axios.get('/produtos/', config)
+    let token1 = localStorage.getItem('token');
+    if(token1){
+    const { data } = await axios.get('/produtos/', {headers: { Authorization: `Bearer ${token1}`,
+    'Content-Type': 'multipart/form-data',
+    accept: 'application/json' }  })
+
     return data
+
+    } else {
+      console.log("Não tem token")
+      setTimeout(() => {
+      this.buscarTodosOsProdutos()
+      }, 1000)
+    }
   }
   async adicionarProdutos(produto) {
     const { data } = await axios.post('/produtos/', produto, config)
