@@ -15,19 +15,16 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-   
       component: AboutView
     },
     {
       path: '/TelaLogin',
       name: 'Tela Login',
-   
       component: TelaLoginView
     },
     {
       path: '/PoliticaDev',
       name: 'PoliticaDev',
-   
       component: PoliticaDevView
     }
   ]
