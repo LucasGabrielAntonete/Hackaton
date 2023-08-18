@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from momentoespecial.views import produtoViewSet
+from momentoespecial.views import produtoViewSet, CompraViewSet, categoriaViewSet, tamanhoViewSet
 from usuario.router import router as usuario_router
 from django.conf.urls.static import static
 
@@ -28,6 +28,9 @@ from uploader.router import router as uploader_router
 
 router = DefaultRouter()
 router.register(r"produtos", produtoViewSet)
+router.register(r"compras", CompraViewSet)
+router.register(r"categorias", categoriaViewSet)
+router.register(r"tamanhos", tamanhoViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
