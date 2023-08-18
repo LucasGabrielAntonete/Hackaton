@@ -1,10 +1,14 @@
 <script setup>
 
+
 </script>
 
 <template>
-    
+
    <main>
+    
+ 
+    
     <div><img 
       class="Momento"
     
@@ -22,8 +26,9 @@
            de Joinville, dispomos de amplo estacionamento e espaço interior, para que você sinta-se muito confortável em estar conosco!"</p>
        </div></div>     
   
-       <div> 
+       <div class="Local"> 
         <img class="Mapa" src="./Maps.png" alt="">
+        
        </div>
         
 
@@ -58,10 +63,9 @@ h1{
   float: left;
   width: 50%;
   height:  50px;
-  padding:150px;
+  padding:100px;
   text-align:justify;
   font-size: 25px;
-  margin-top:1px;
   font-family: 'Lato' , sans-serif;
   
   
@@ -75,20 +79,17 @@ h1{
 
   
 }
-img{
-  width: 500px;
-  
-  
+img.Mapa{
+    width: 600px;
+    border-radius:50px;
+    box-sizing: border-box;
+    padding-top: 100px;
+    padding-left: 100px;
+
+ 
+
 }
-.Mapa{
-  box-sizing: border-box;
-  float: left;
-  width: 50%;
-  /* height:  50px; */
-  padding:150px;
-  margin-top:1px;
-  border-radius:50px;
-}
+
 
 
     
