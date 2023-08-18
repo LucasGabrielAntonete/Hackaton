@@ -163,6 +163,10 @@ h5 {
     box-shadow: 0 0 0 0;
     outline: 0;
 }
+
+.search-input::placeholder {
+  color: #00000090;
+}
 .icons {
   display: flex;
   margin-right: 40px;
