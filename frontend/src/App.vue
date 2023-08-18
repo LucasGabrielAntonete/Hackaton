@@ -1,5 +1,5 @@
 <script setup>
-import PaginaDebutantes from '@/components/PaginaDebutantes.vue'
+import PaginaDebutantesVue from '@/components/PaginaDebutantesVue.vue'
 </script>
 
 <template>
