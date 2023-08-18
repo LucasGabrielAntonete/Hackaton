@@ -132,6 +132,7 @@ footer {
 }
 
 .float-child {
+  /* display: flex; */
   flex-direction: row;
   width: 100%;
   padding: 1% 0.5%;
