@@ -3,7 +3,11 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      produto: {},
+      produto: {
+        capa: {
+          
+        }
+      },
     };
   },
   mounted() {
@@ -12,8 +16,11 @@ export default {
   methods: {
     async buscarProduto() {
       const produtoId = this.$route.params.id;
+      const token = localStorage.getItem('token');
       try {
-        const resposta = await axios.get(`/produtos/${produtoId}/`);
+        const resposta = await axios.get(`/produtos/${produtoId}/`, {headers: { Authorization: `Bearer ${token}`,
+'Content-Type': 'multipart/form-data',
+accept: 'application/json' }  });
         this.produto = resposta.data;
         console.log('Produto', this.produto);
       } catch (error) {
