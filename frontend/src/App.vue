@@ -1,11 +1,12 @@
 <script setup>
-
+import PaginaDebutantes from '@/components/PaginaDebutantes.vue'
 </script>
 
 <template>
-  <h1>oi</h1>
+<PaginaDebutantesVue></PaginaDebutantesVue>
+
+
 </template>
 
 <style scoped>
-
 </style>
