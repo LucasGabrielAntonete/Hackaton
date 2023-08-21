@@ -70,7 +70,7 @@
           />
         </svg>
       </div>
-      <div class="icon-user">
+      <div class="icon-user" @click="$router.push({name: 'LoginView'})">
         <svg
           width="30px"
           height="30px"
@@ -173,7 +173,9 @@ h5 {
 }
 .icon-heart, .icon-bag, .icon-user {
     padding: 15px;
+    cursor: pointer;
 }
+
 .menu {
   display: flex;
   column-gap: 200px;

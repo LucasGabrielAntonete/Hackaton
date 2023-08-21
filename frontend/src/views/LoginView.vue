@@ -22,7 +22,7 @@
             <font-awesome-icon icon="fa-solid fa-lock" />
             <input class="input-field" type="password" name="pass" required />
           </div>
-          <button class="btn-entrar" onclick="location.href='views/HomeView'" type="button"> Entrar</button>
+          <button class="btn-entrar" @click="$router.push('/')" type="button"> Entrar</button>
         </fieldset>
       </div>
     </div>

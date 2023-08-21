@@ -7,7 +7,7 @@
         <div class="float-child">
           <h3>Sobre a Momento Especial</h3>
           <p><a href="#">Quem Somos?</a></p>
-          <p><a href="#">Política de devolução</a></p>
+          <p><RouterLink :to="{name: 'PoliticaDevolucao'}">Política de devolução</RouterLink></p>
         </div>
         <div class="float-child">
           <h3>Contato</h3>
