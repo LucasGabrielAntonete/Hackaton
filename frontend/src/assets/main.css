@@ -1,4 +1,19 @@
 body {
-    background-color: rgba(239, 238, 238, 1);
-    
+    background-color: rgba(239, 238, 238, 1);   
+}
+
+#app {
+    height: 100vh;   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main {
+    /* background-color: red; */
+    /* min-height: calc(100% - 251px); */
+}
+
+footer {
+    width: 100%;
 }

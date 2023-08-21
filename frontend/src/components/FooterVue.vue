@@ -1,12 +1,12 @@
 <script setup></script>
 
 <template>
-  <div class="app">
+  <!-- <div class="app"> -->
     <footer class="footer">
       <div class="float-container">
         <div class="float-child">
           <h3>Sobre a Momento Especial</h3>
-          <p><a href="#">Quem Somos?</a></p>
+          <p><RouterLink :to="{name: 'about'}">Quem Somos?</RouterLink></p>
           <p><RouterLink :to="{name: 'PoliticaDevolucao'}">Política de devolução</RouterLink></p>
         </div>
         <div class="float-child">
@@ -95,7 +95,7 @@
         </div>
       </div>
     </footer>
-  </div>
+  <!-- </div> -->
 </template>
 
 <style scoped>
@@ -120,12 +120,7 @@ a {
   color: inherit;
 }
 
-footer {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
+
 .float-container {
   display: flex;
   margin: 0;

@@ -6,7 +6,9 @@ import HeaderVue from '@/components/HeaderVue.vue'
 
 <template>
   <HeaderVue />
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
   <FooterVue />
 </template>
 
