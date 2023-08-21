@@ -1,13 +1,13 @@
 <script setup></script>
 
 <template>
-  <div class="app">
+  <!-- <div class="app"> -->
     <footer class="footer">
       <div class="float-container">
         <div class="float-child">
           <h3>Sobre a Momento Especial</h3>
-          <p><a href="#">Quem Somos?</a></p>
-          <p><a href="#">Política de devolução</a></p>
+          <p><RouterLink :to="{name: 'about'}">Quem Somos?</RouterLink></p>
+          <p><RouterLink :to="{name: 'PoliticaDevolucao'}">Política de devolução</RouterLink></p>
         </div>
         <div class="float-child">
           <h3>Contato</h3>
@@ -95,7 +95,7 @@
         </div>
       </div>
     </footer>
-  </div>
+  <!-- </div> -->
 </template>
 
 <style scoped>
@@ -120,12 +120,7 @@ a {
   color: inherit;
 }
 
-footer {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  width: 100%;
-}
+
 .float-container {
   display: flex;
   margin: 0;
@@ -136,6 +131,7 @@ footer {
 }
 
 .float-child {
+  /* display: flex; */
   flex-direction: row;
   width: 100%;
   padding: 1% 0.5%;
