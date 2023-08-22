@@ -23,21 +23,23 @@
 h1{
      font-family: 'Lato', sans-serif;
      margin-left: 5%;
+     padding: 5px;
 }
 hr{
     width:90%;
+    margin-left: 5%;
 }
 .produtos {
-  margin: 200px;
-  margin-top: 30px;
+  /* margin: 200px; */
+  margin-top: 60px;
   margin-left: 10%;
   display: grid;
-  grid-template-columns: repeat(3, 30%);
-  grid-auto-rows: 50%;
+  grid-template-columns: repeat(3, 33%);
+  /* grid-auto-rows: 50%; */
 }
 .card-produto {
-  width: 300px;
-  height: 450px;
+  width: 280px;
+  height: 400px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
