@@ -52,7 +52,7 @@ hr{
 }
 .card-produto {
   width: 250px;
-  height: 400px;
+  height: 430px;
   border-radius: 6px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   display: flex;
@@ -62,7 +62,7 @@ hr{
 }
 img{
   width: 200px;
-  height: 260px;
+  height: 280px;
   border-radius: 6px;
   margin-top: 15px;
 }
