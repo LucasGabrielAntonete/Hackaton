@@ -7,6 +7,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/LoginView.vue'
 import PoliticaDevolucao from '../views/PoliticaDevolucao.vue'
+import PaginaDebutantesVue from '../views/PaginaDebutantesVue.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -29,6 +30,11 @@ const router = createRouter({
           path: '/como-devolver',
           name: 'PoliticaDevolucao',
           component: PoliticaDevolucao
+        },
+        {
+          path: '/debutantes',
+          name: 'debutantes',
+          component: PaginaDebutantesVue
         }
       ]
     },
