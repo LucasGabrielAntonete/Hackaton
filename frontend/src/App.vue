@@ -1,12 +1,9 @@
 <script setup>
-import PaginaDebutantesVue from '@/components/PaginaDebutantesVue.vue'
+// import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-<PaginaDebutantesVue></PaginaDebutantesVue>
-
-
+  <RouterView />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
