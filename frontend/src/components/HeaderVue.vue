@@ -105,10 +105,10 @@
         <h5>Vestidos</h5>
       </div>
       <div class="component-nav">
-        <h5>Promoções</h5>
+        <h5>Lançamentos</h5>
       </div>
       <div class="component-nav">
-        <h5>Lançamentos</h5>
+        <h5>Destaques</h5>
       </div>
     </nav>
   </header>
