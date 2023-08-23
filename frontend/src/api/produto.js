@@ -10,7 +10,6 @@ export default class ProdutoApi {
     const { data } = await axios.get('/produtos/', {headers: { Authorization: `Bearer ${token1}`,
     'Content-Type': 'multipart/form-data',
     accept: 'application/json' }  })
-
     return data
 
     } else {
