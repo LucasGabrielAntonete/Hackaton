@@ -7,6 +7,7 @@
       <label for="password">Password:</label>
       <input type="password" id="password" v-model="password" required />
       <button type="submit">Login</button>
+      <router-link :to="{ name: 'registro' }">Cadastrar</router-link>
     </form>
   </div>
 </template>

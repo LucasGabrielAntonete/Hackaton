@@ -3,9 +3,10 @@
       <h2>Cadastro</h2>
       <form @submit.prevent="registerUser">
         <input v-model="email" placeholder="Email" />
-        <input v-model="password1" type="password" placeholder="Password" />
+        <input v-model="password" type="password" placeholder="Password" />
         <input v-model="password2" type="password" placeholder="Confirm Password" />
         <button type="submit">Cadastrar</button>
+      
       </form>
     </div>
   </template>
@@ -17,22 +18,29 @@
     data() {
       return {
         email: '',
-        password1: '',
+        password: '',
         password2: '',
       };
     },
     methods: {
       async registerUser() {
-        if (this.password1 !== this.password2) {
+        if (this.password !== this.password2) {
           console.error('Passwords do not match');
           return;
         }
   
         try {
-            await axios.post('/api/signup/', {
+            await axios.post(`/api/signup/`,{
             email: this.email,
-            password1: this.password1,
-          });
+            password: this.password,
+              
+          }, {
+            headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json', // Adicione esta linha
+    }
+          }
+          );
   
           // Redirecione para a página de login ou realize outras ações necessárias
         } catch (error) {

@@ -24,7 +24,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
-from usuario import views
+from usuario import cadastro
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -41,6 +41,7 @@ urlpatterns = [
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("api/", include(usuario_router.urls)),
     path("api/media/", include(uploader_router.urls)),
-    path('api/signup/', views.signup, name='signup'),
+    
+    path('api/signup/', cadastro.create_user, name='create_user'),
 ]
 urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)
