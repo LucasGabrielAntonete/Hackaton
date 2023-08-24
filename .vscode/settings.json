@@ -1,0 +1,8 @@
+{
+    "python.analysis.extraPaths": [
+        "./backend/__pypackages__/3.10/lib"
+    ],
+    "cSpell.words": [
+        "viewsets"
+    ]
+}
