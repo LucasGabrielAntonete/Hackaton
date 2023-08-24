@@ -1,5 +1,3 @@
-<script setup></script>
-
 <template>
   <div class="main">
     <h1>Momento Especial</h1>
@@ -11,23 +9,57 @@
           alt=""
         />
       </div>
-      <div class="form">
+      <form @submit.prevent="login">
         <fieldset>
           <h2>Entrar na conta</h2>
+          <h2><router-link :to="{ name: 'RegistroView' }">Cadastrar</router-link></h2>
           <div class="input input-icons">
             <font-awesome-icon icon="fa-solid fa-envelope" />
-            <input class="input-field" type="email" name="email" required  />
+            <input class="input-field" type="email" name="email" required v-model="email" />
           </div>
           <div class="input input-icons">
             <font-awesome-icon icon="fa-solid fa-lock" />
-            <input class="input-field" type="password" name="pass" required />
+            <input class="input-field" type="password" name="pass" required v-model="password" />
           </div>
-          <button class="btn-entrar" @click="$router.push('/')" type="button"> Entrar</button>
+          <button type="submit" class="btn-entrar" @click="$router.push('/')">Login</button>
         </fieldset>
-      </div>
+      </form>
     </div>
   </div>
 </template>
+
+<script setup>
+import { useRouter } from 'vue-router'
+import axios from 'axios'
+import { ref } from 'vue'
+
+const router = useRouter()
+const email = ref('')
+const password = ref('')
+async function login() {
+  const response = await axios.post('/token/', {
+    email: email.value,
+    password: password.value
+  })
+
+  const asyncLocalStorage = {
+    setItem(key, value) {
+      return Promise.resolve().then(function () {
+        localStorage.setItem(key, value)
+      })
+    },
+    getItem(key) {
+      return Promise.resolve().then(function () {
+        return localStorage.getItem(key)
+      })
+    }
+  }
+
+  asyncLocalStorage.setItem('token', response.data.access).then(() => {
+    router.push('/')
+  })
+}
+</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
@@ -52,7 +84,7 @@
   height: 100%;
 }
 
-.form {
+form {
   width: 50%;
   display: flex;
   justify-content: flex-end;
@@ -97,7 +129,7 @@ h2 {
   padding-right: 3px;
   text-align: center;
   border-radius: 6px;
-  background-color:  rgba(212, 186, 163, 1);
+  background-color: rgba(212, 186, 163, 1);
   border: none;
 }
 .input {
@@ -114,7 +146,6 @@ h2 {
   height: 30;
   margin-left: 60rem;
   border: none;
-  
 }
 .btn-entrar:hover {
   background-color: rgb(216, 190, 168);
@@ -128,56 +159,9 @@ fieldset {
   margin-top: 100px;
 }
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px  rgba(212, 186, 163, 1) inset !important;
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(212, 186, 163, 1) inset !important;
 }
-
 </style>
-<template>
-  <div>
-    <h2>Login</h2>
-    <form @submit.prevent="login">
-      <label for="email">email:</label>
-      <input type="text" id="email" v-model="email" required />
-      <label for="password">Password:</label>
-      <input type="password" id="password" v-model="password" required />
-      <button type="submit">Login</button>
-      <router-link :to="{ name: 'registro' }">Cadastrar</router-link>
-    </form>
-  </div>
-</template>
-
-<script setup>
-import { useRouter } from 'vue-router'
-import axios from 'axios'
-import { ref } from 'vue'
-
-const router = useRouter()
-const email = ref('')
-const password = ref('')
-async function login() {
-  const response = await axios.post('/token/', {
-    email: email.value,
-    password: password.value
-  })
-
-  const asyncLocalStorage = {
-    setItem(key, value) {
-      return Promise.resolve().then(function () {
-        localStorage.setItem(key, value)
-      })
-    },
-    getItem(key) {
-      return Promise.resolve().then(function () {
-        return localStorage.getItem(key)
-      })
-    }
-  }
-
-  asyncLocalStorage.setItem('token', response.data.access).then(() => {
-    router.push('/')
-  })
-}
-</script>

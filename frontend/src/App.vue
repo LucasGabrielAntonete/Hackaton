@@ -1,8 +1,10 @@
+<script setup>
+import FooterVue from './components/FooterVue.vue'
+import HeaderVue from './components/HeaderVue.vue'
+</script>
+
 <template>
-  <header>
-    <router-link :to="{ name: 'home' }">Home</router-link>
-  </header>
-  <main>
+    <HeaderVue></HeaderVue>
     <RouterView />
-  </main>
+    <FooterVue></FooterVue>
 </template>
