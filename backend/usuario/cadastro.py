@@ -9,7 +9,7 @@ from usuario.models import Usuario
 
 @api_view(['POST'])
 @authentication_classes([])
-@permission_classes([AllowAny])
+@permission_classes([AllowAny]) 
 def create_user(request):
         email = request.data.get("email")
         password = request.data.get("password")

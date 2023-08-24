@@ -28,9 +28,34 @@ export default {
       } catch (error) {
         console.error('Erro buscando ao buscar o produto.', error)
       }
-    }
-  }
-}
+    },
+    async addToCart() {
+      try {
+        const token = localStorage.getItem('token')
+        const response = await axios.post(
+          '/api/adicionar/',
+          {
+            produto_id: this.produtoId,
+            quantidade: 1, 
+          },
+          {
+            headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',
+            accept: 'application/json'
+           },
+          }
+        );
+
+        // Lógica para atualizar a interface ou mostrar uma mensagem de sucesso
+        console.log(response.data.message);
+      } catch (error) {
+        console.error('Erro ao adicionar ao carrinho:', error);
+      }
+    },
+  },
+};
+  
 </script>
 
 <template>
@@ -38,4 +63,5 @@ export default {
   <hr />
   <h1>{{ produto.nome }}</h1>
   <img :src="produto.capa.file" alt="" />
+  <button @click="addToCart">Adicionar ao Carrinho</button>
 </template>
