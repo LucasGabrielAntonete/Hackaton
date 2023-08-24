@@ -9,6 +9,7 @@
 
 <script>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router'
 import axios from 'axios';
 
 export default {
@@ -16,7 +17,7 @@ export default {
     const email = ref('');
     const password = ref('');
     const password2 = ref('');
-
+    const router = useRouter()
     const registerUser = async () => {
       if (password.value !== password2.value) {
         console.error('Passwords do not match');
@@ -33,6 +34,7 @@ export default {
             'Accept': 'application/json', 
           },
         });
+        router.push('/')
 
         // Redirecione para a página de login ou realize outras ações necessárias
       } catch (error) {
