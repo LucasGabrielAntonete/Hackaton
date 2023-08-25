@@ -5,7 +5,7 @@
       <div class="imagem">
         <img
           class="ftLogin"
-          src="https://mail.google.com/mail/u/0?ui=2&ik=96682793ed&attid=0.1&permmsgid=msg-f:1773670501943312577&th=189d57ec98eb80c1&view=att&disp=safe&realattid=f_ll2dsl2d0"
+          src="../components/img/ftLogin.jpg"
           alt=""
         />
       </div>

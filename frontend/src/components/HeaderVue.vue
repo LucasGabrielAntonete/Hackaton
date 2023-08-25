@@ -1,4 +1,30 @@
-<script setup></script>
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const showDropdown = ref(false)
+
+function getHeightHeader() {
+  const header = document.querySelector('header')
+  const menu = document.querySelector('.menu')
+  let headerHeight, menuHeight
+  if (header) {
+    headerHeight = header.offsetHeight
+    menuHeight = menu.offsetHeight
+    const dropdown = document.querySelector('.dropdown')
+    if (dropdown) {
+      dropdown.style.top = headerHeight + menuHeight + 'px'
+    }
+    console.log(headerHeight)
+  }
+  console.log('aa')
+}
+
+window.addEventListener('resize', getHeightHeader)
+
+onMounted(() => {
+  getHeightHeader()
+})
+</script>
 
 <template>
   <header>
@@ -98,19 +124,38 @@
       </div>
     </div>
     <nav class="menu">
-      <div class="component-nav">
-        <h5>Início</h5>
+    <button class="component-nav">Início</button>
+    <button class="component-nav vestidos" @click="showDropdown = !showDropdown">
+      <p>
+        Vestidos        
+      </p>
+      <svg
+          width="15px"
+          height="15px"
+          viewBox="0 -0.5 20 17"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          class="si-glyph si-glyph-triangle-down"
+        >
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <path
+              d="M10.106,12.69 C9.525,13.27 8.584,13.27 8.002,12.69 L1.561,6.246 C0.979,5.665 0.722,4.143 2.561,4.143 L15.549,4.143 C17.45,4.143 17.131,5.664 16.549,6.246 L10.106,12.69 L10.106,12.69 Z"
+              fill="black"
+              class="si-glyph-fill"
+            ></path>
+          </g>
+        </svg>
+     
+    </button>
+    <button class="component-nav">Lançamentos</button>
+    <button class="component-nav">Destaques</button>
+  </nav>
+  <div class="dropdown" v-if="showDropdown">
+        <a href="#"> Debutantes </a>
+        <a href="#"> Festa </a>
+        <a href="#"> Noivas </a>
       </div>
-      <div class="component-nav">
-        <h5>Vestidos</h5>
-      </div>
-      <div class="component-nav">
-        <h5>Lançamentos</h5>
-      </div>
-      <div class="component-nav">
-        <h5>Destaques</h5>
-      </div>
-    </nav>
   </header>
 
   <!-- <div class="sticky top-0 bg-mantle shadow-lg ">
@@ -180,13 +225,43 @@ h5 {
   padding: 15px;
   cursor: pointer;
 }
-
+.vestidos {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .menu {
   display: flex;
   column-gap: 200px;
   justify-content: center;
   background-color: rgba(212, 186, 163, 1);
-  padding: 10px;
-  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.19);
+  padding: 0px;
+  margin: 0;
 }
+.component-nav {
+  padding: 2px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+.component-nav:hover {
+  background-color: rgb(207, 177, 152);
+}
+.dropdown {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  justify-content: center;  
+  /* padding: 3px; */
+  background-color: rgba(212, 186, 163, 1);
+  height: 30px;
+  column-gap: 13vw;
+}
+.dropdown a:hover {
+  background-color: rgb(207, 177, 152);
+}
+
+
 </style>
