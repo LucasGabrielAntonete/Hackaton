@@ -25,6 +25,7 @@ from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
+from django.urls import path
 from usuario import cadastro
 
 from django.conf import settings
@@ -46,6 +47,6 @@ urlpatterns = [
     path("api/", include(usuario_router.urls)),
     path("api/media/", include(uploader_router.urls)),
     path('api/signup/', cadastro.create_user, name='create_user'),
-    path('api/adicionar/', adicionarCarrinho.add_to_cart, name='add_to_cart')
+    path('api/adicionar/', adicionarCarrinho.add_to_cart, name='add_to_cart'),
 ]
 urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)

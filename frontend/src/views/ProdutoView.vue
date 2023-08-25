@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios'
+import jwtDecode from 'jwt-decode'
 export default {
   data() {
     return {
@@ -33,6 +34,9 @@ export default {
       try {
         const token = localStorage.getItem('token')
         const produtoId = this.$route.params.id
+        const decodedToken = jwtDecode(token)
+        const usuarioId = decodedToken.user_id
+
         const resposta = await axios.get(`/produtos/${produtoId}/`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -46,7 +50,7 @@ export default {
           {
             produto_id: Number(produtoId),
             quantidade: 1, 
-            usuario: 1,
+            usuario: usuarioId,
           },
           {
             headers: {

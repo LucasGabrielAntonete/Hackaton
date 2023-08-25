@@ -50,8 +50,7 @@
             />
           </svg>
         </div>
-        <router-link :to="'/carrinho'">
-        <div class="icon-bag">
+        <div class="icon-bag" @click="$router.push({ name: 'CarrinhoView' })">
           <svg
             width="30px"
             height="30px"
@@ -72,8 +71,7 @@
             />
           </svg>
         </div>
-      </router-link>
-        <div class="icon-user" @click="$router.push({ name: 'LoginView' })">
+        <div class="icon-user" @click="$router.push({ name: 'loginView' })">
           <svg
             width="30px"
             height="30px"
