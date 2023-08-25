@@ -12,6 +12,10 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 
+import { useUserStore } from '../stores/counter'
+
+const userStore = useUserStore()
+
 export default {
   setup() {
     const email = ref('')
@@ -25,12 +29,12 @@ export default {
       }
 
       try {
-        await axios.post(
+        const data = await axios.post(
           '/api/signup/',
           {
             email: email.value,
             password: password.value
-          },
+          },  
           {
             headers: {
               'Content-Type': 'application/json',
@@ -39,6 +43,8 @@ export default {
           }
         )
         router.push('/login/')
+        console.log(data)
+        userStore.user = data
 
         // Redirecione para a página de login ou realize outras ações necessárias
       } catch (error) {

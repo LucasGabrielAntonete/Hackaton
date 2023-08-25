@@ -32,28 +32,35 @@ export default {
     async addToCart() {
       try {
         const token = localStorage.getItem('token')
-        const response = await axios.post(
-          '/api/adicionar/',
-          {
-            produto_id: this.produtoId,
-            quantidade: 1, 
-          },
-          {
-            headers: {
+        const produtoId = this.$route.params.id
+        const resposta = await axios.get(`/produtos/${produtoId}/`, {
+          headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
             accept: 'application/json'
-           },
+          }
+        })
+        this.produto = resposta.data
+        console.log(produtoId)
+        const response = await axios.post('/api/adicionar/',
+          {
+            produto_id: Number(produtoId),
+            quantidade: 1, 
+            usuario: 1,
+          },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json'
+            } 
           }
         );
-
-        // Lógica para atualizar a interface ou mostrar uma mensagem de sucesso
         console.log(response.data.message);
       } catch (error) {
         console.error('Erro ao adicionar ao carrinho:', error);
       }
     },
-  },
+  }
 };
   
 </script>

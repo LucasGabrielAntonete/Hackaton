@@ -1,22 +1,28 @@
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from momentoespecial.models import Compra, ItensCompra
+from .models import Compra, ItensCompra, produto
 from rest_framework.permissions import AllowAny
 
 @api_view(['POST'])
 @permission_classes([AllowAny]) 
 def add_to_cart(request):
+    print(request.data)
     produto_id = request.data.get('produto_id')
     quantidade = request.data.get('quantidade', 1)
-    usuario = request.user
+    usuario = request.data.get('usuario')
 
-    Compra, _ = Compra.objects.get_or_create(usuario=usuario, status=Compra.StatusCompra.CAR)
+    if(ItensCompra.objects.filter(produto=produto_id).exists()):
+        return Response({"message": "Produto já adicionado ao carrinho."})
     
-    produto, created = ItensCompra.objects.get_or_create(compra=Compra, produto_id=produto_id)
+    else:
+        compra = Compra.objects.filter(usuario=usuario).first()
+
+        produto_instance = produto.objects.get(id=produto_id)
+
+        itensCompra = ItensCompra.objects.create(produto=produto_instance, quantidade=quantidade, compra=compra)
+
+        itensCompra.save()
+
     
-    if not created:
-        produto.quantidade += quantidade
-        produto.save()
-    
-    return Response({"message": "Produto adicionado ao carrinho com sucesso."})
+        return Response({"message": "Produto adicionado ao carrinho com sucesso."})
