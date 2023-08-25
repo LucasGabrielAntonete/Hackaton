@@ -1,3 +1,4 @@
+from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer, CharField
 
 from momentoespecial.models import Compra, ItensCompra, produto

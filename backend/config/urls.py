@@ -37,7 +37,6 @@ router.register(r"produtos", produtoViewSet)
 router.register(r"compras", CompraViewSet)
 router.register(r"categorias", categoriaViewSet)
 router.register(r"tamanhos", tamanhoViewSet)
-router.register(r"usuarios", usuario_router)
 router.register(r"favoritos", favoritosViewSet)
 
 urlpatterns = [

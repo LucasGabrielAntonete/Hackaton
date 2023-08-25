@@ -16,3 +16,5 @@ class ItensCompraInline(admin.TabularInline):
 @admin.register(Compra)
 class CompraAdmin(admin.ModelAdmin):
     inlines = [ItensCompraInline]
+
+from rest_framework.routers import DefaultRouter

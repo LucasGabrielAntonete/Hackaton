@@ -1,4 +1,4 @@
-<script setup></script>
+  <script setup></script>
 
 <template>
   <div class="Titulo"><h1>Políticas de devolução</h1></div>
