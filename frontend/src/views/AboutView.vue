@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-    <div><img class="Momento" src="./Fachada.png" alt="" /></div>
+    <div><img class="Momento" src="../components/img/Fachada.png" alt="" /></div>
     <h1>Quem Somos</h1>
     <section>
       <div class="Juncao">
@@ -21,7 +21,7 @@
         
       <div class="imagem">
         <a href="https://www.google.com/maps/place/R.+Waldemiro+Jos%C3%A9+Borges,+526+-+Profipo,+Joinville+-+SC,+89233-048/@-26.3601989,-48.8428745,17z/data=!3m1!4b1!4m6!3m5!1s0x94deb72ba87f31a1:0x55820e302f0ee13c!8m2!3d-26.3601989!4d-48.8428745!16s%2Fg%2F11jyyl4r4w?entry=ttu">
-        <img class="Mapa" src="./Maps.png" alt="" />
+        <img class="Mapa" src="../components/img/Maps.png" alt="" />
       </a>
         <div class="texto_mapa">
           <font-awesome-icon :icon="['fas', 'location-dot']" class="icone"/>
