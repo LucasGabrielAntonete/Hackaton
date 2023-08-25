@@ -129,19 +129,17 @@ onMounted(() => {
     <RouterLink :to="{ name: 'Home' }">
     <button class="component-nav">Início</button>
     </RouterLink>
+    <RouterLink :to="{ name: 'Home' }">
     <button class="component-nav vestidos" @click="showDropdown = !showDropdown">
       <p>
         Vestidos        
       </p>
     </button>
+  </RouterLink>
+
     <button class="component-nav">Lançamentos</button>
-    <button class="component-nav">Destaques</button>
+
   </nav>
-  <div class="dropdown" v-if="showDropdown">
-        <a href="#"> Debutantes </a>
-        <a href="#"> Festa </a>
-        <a href="#"> Noivas </a>
-      </div>
   </header>
 
   <!-- <div class="sticky top-0 bg-mantle shadow-lg ">
