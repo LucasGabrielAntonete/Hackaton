@@ -34,7 +34,7 @@ export default {
           {
             email: email.value,
             password: password.value
-          },  
+          },
           {
             headers: {
               'Content-Type': 'application/json',

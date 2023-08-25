@@ -2,7 +2,7 @@
 
 <template>
   <div class="Titulo"><h1>Políticas de devolução</h1></div>
-  
+
   <div>
     <ul>
       <div class="texto_icone">
@@ -156,47 +156,42 @@
       </svg>
 
       <div class="texto_icone">
-
         <li>
-            Caso haja excesso de sujeira, danificações no traje e atraso na devolução será cobrado
-            uma taxa.
-          </li>
-          <div class="icons" >
+          Caso haja excesso de sujeira, danificações no traje e atraso na devolução será cobrado uma
+          taxa.
+        </li>
+        <div class="icons">
           <svg
-          fill="#000000"
-          width="100%"
-          height="70px"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <title />
+            fill="#000000"
+            width="100%"
+            height="70px"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title />
 
-          <g data-name="Layer 2" id="Layer_2">
-            <path
-              d="M17,2H14.62l-.29.46a2.75,2.75,0,0,1-4.65,0L9.38,2H7A5,5,0,0,0,2,7v5H6V22H18V12h4V7A5,5,0,0,0,17,2Zm3,8H18V7H16V20H8V7H6v3H4V7A3,3,0,0,1,7,4H8.32a4.75,4.75,0,0,0,7.36,0H17a3,3,0,0,1,3,3Z"
-            />
-          </g>
-        </svg></div>
-        
-
-        <div>
-          
+            <g data-name="Layer 2" id="Layer_2">
+              <path
+                d="M17,2H14.62l-.29.46a2.75,2.75,0,0,1-4.65,0L9.38,2H7A5,5,0,0,0,2,7v5H6V22H18V12h4V7A5,5,0,0,0,17,2Zm3,8H18V7H16V20H8V7H6v3H4V7A3,3,0,0,1,7,4H8.32a4.75,4.75,0,0,0,7.36,0H17a3,3,0,0,1,3,3Z"
+              />
+            </g>
+          </svg>
         </div>
+
+        <div></div>
       </div>
     </ul>
   </div>
 </template>
 
 <style scoped>
-
-.Titulo{
+.Titulo {
   font-size: 30px;
-  text-align:center;
-  display:grid;
+  text-align: center;
+  display: grid;
   margin: 0;
   margin-bottom: 7rem;
   font-size: 40px;
-
 }
 li {
   position: relative;
@@ -206,13 +201,11 @@ li {
   width: 200px;
   text-align: center;
   font-size: large;
-
 }
 
 ul {
   display: flex;
   flex-wrap: nowrap;
-  
 }
 
 .texto_icone {
@@ -222,5 +215,4 @@ ul {
   flex-direction: column-reverse;
   height: 50%;
 }
-
 </style>

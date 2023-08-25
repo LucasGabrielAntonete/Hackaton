@@ -20,21 +20,18 @@ const router = createRouter({
           component: HomeView,
           name: 'Home',
           beforeEnter: isAuthenticated
-
         },
         {
           path: '/quem-somos',
           name: 'about',
           component: AboutView,
           beforeEnter: isAuthenticated
-
         },
         {
           path: '/como-devolver',
           name: 'PoliticaDevolucao',
           component: PoliticaDevolucao,
           beforeEnter: isAuthenticated
-
         },
         {
           path: '/produto/:id',
@@ -47,6 +44,11 @@ const router = createRouter({
           name: 'RegistroView',
           component: () => import('../views/RegistroView.vue')
         },
+        {
+          path: '/carrinho',
+          name: 'CarrinhoView',
+          component: () => import('../views/CarrinhoView.vue')
+        }
       ]
     },
     {
@@ -56,22 +58,21 @@ const router = createRouter({
         {
           path: '/login',
           name: 'loginView',
-          component: LoginView,
-        },
+          component: LoginView
+        }
       ]
     }
-    
   ]
 })
 
 export function isAuthenticated(to, from, next) {
   const token = localStorage.getItem('token')
-   if (token) {
+  if (token) {
     next() // Continua para a próxima rotaco
     console.log('a')
   } else {
     next('/login') // Redireciona para a página de login
-     console.log('b')
+    console.log('b')
   }
 }
 

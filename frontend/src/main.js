@@ -7,7 +7,6 @@ import { createPinia } from 'pinia'
 
 import './plugins/axios'
 
-
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 /* import font awesome icon component */
@@ -18,7 +17,6 @@ import { faUserSecret, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
 library.add(faUserSecret, faLocationDot)
-
 
 const app = createApp(App)
 ;('')

@@ -46,27 +46,27 @@ export default {
         })
         this.produto = resposta.data
         console.log(produtoId)
-        const response = await axios.post('/api/adicionar/',
+        const response = await axios.post(
+          '/api/adicionar/',
           {
             produto_id: Number(produtoId),
-            quantidade: 1, 
-            usuario: usuarioId,
+            quantidade: 1,
+            usuario: usuarioId
           },
           {
             headers: {
               'Content-Type': 'application/json',
               Accept: 'application/json'
-            } 
+            }
           }
-        );
-        console.log(response.data.message);
+        )
+        console.log(response.data.message)
       } catch (error) {
-        console.error('Erro ao adicionar ao carrinho:', error);
+        console.error('Erro ao adicionar ao carrinho:', error)
       }
-    },
+    }
   }
-};
-  
+}
 </script>
 
 <template>
