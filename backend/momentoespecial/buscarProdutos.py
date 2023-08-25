@@ -16,7 +16,7 @@ def get_cart(request):
             cart_data.append({
                 'produto_id': item.produto.id_produto,
                 'nome': item.produto.nome,
-                'quantidade': item.quantidade,
+                'capa': item.produto.capa.url,
             })
         return Response(cart_data)
     except Compra.DoesNotExist:

@@ -1,9 +1,10 @@
 <template>
- <div>
-    <h1>Seu Carrinho de Compras</h1>
+ <div class="flex flex-row align-middle justify-center">
+    <h1 class="">Seu Carrinho de Compras</h1>
+    <hr>
     <div v-for="(item) in ItensCarrinho" :key="item.id">
-      <h2>{{ item.nome }}</h2>
-      <p>Quantidade: {{ item.quantidade }}</p>
+        <h2>{{ item.nome }}</h2>
+        <img :src="item.capa" alt=""/>
     </div>
   </div>
 </template>
@@ -13,7 +14,7 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      ItensCarrinho: []
+      ItensCarrinho: [],
     }
   },
   mounted() {
