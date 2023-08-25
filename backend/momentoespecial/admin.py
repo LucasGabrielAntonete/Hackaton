@@ -1,11 +1,12 @@
 from django.contrib import admin
 
-from .models import tamanho, categoria, produto, Compra, ItensCompra
+from .models import tamanho, categoria, produto, Compra, ItensCompra, favoritos
 
 
 admin.site.register(tamanho)
 admin.site.register(categoria)
 admin.site.register(produto)
+admin.site.register(favoritos)
 
 
 

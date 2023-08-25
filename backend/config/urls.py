@@ -18,7 +18,7 @@ from momentoespecial import adicionarCarrinho
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from momentoespecial.views import produtoViewSet, CompraViewSet, categoriaViewSet, tamanhoViewSet
+from momentoespecial.views import produtoViewSet, CompraViewSet, categoriaViewSet, tamanhoViewSet, favoritosViewSet
 from usuario.router import router as usuario_router
 from django.conf.urls.static import static
 from rest_framework_simplejwt.views import (
@@ -37,6 +37,8 @@ router.register(r"produtos", produtoViewSet)
 router.register(r"compras", CompraViewSet)
 router.register(r"categorias", categoriaViewSet)
 router.register(r"tamanhos", tamanhoViewSet)
+router.register(r"usuarios", usuario_router)
+router.register(r"favoritos", favoritosViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),
