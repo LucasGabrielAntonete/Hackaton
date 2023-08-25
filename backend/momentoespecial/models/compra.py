@@ -15,9 +15,6 @@ class Compra(models.Model):
     dataInicio = models.DateField()
     dataFinal = models.DateField()
 
-    def validacao(dataInicio, dataFinal):
-        if dataInicio 
-
 
 class ItensCompra(models.Model):
     compra = models.ForeignKey(Compra, on_delete=models.CASCADE, related_name="itens")
