@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-import BlankLayout from '../layout/BlankLayout.vue'
-import FullLayout from '../layout/FullLayout.vue'
+import FullLayout from '@/layout/FullLayout.vue'
+import BlankLayout from '@/layout/BlankLayout.vue'
 
 import HomeView from '../views/HomeView.vue'
+
 import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/LoginView.vue'
 import PoliticaDevolucao from '../views/PoliticaDevolucao.vue'
-import PaginaDebutantesVue from '../views/PaginaDebutantesVue.vue'
-
+import ProdutoView from '../views/ProdutoView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -19,22 +19,34 @@ const router = createRouter({
         {
           path: '/',
           component: HomeView,
-          name: 'Home'
+          name: 'Home',
+          beforeEnter: isAuthenticated
         },
         {
           path: '/quem-somos',
           name: 'about',
-          component: AboutView
+          component: AboutView,
+          beforeEnter: isAuthenticated
+
         },
         {
           path: '/como-devolver',
           name: 'PoliticaDevolucao',
-          component: PoliticaDevolucao
+          component: PoliticaDevolucao,
+          beforeEnter: isAuthenticated
+
         },
         {
-          path: '/debutantes',
-          name: 'debutantes',
-          component: PaginaDebutantesVue
+          path: '/produto/:id',
+          name: 'ProdutoView',
+          component: ProdutoView,
+          beforeEnter: isAuthenticated
+
+        },
+        {
+          path: '/registro',
+          name: 'RegistroView',
+          component: () => import('../views/RegistroView.vue')
         }
       ]
     },
@@ -44,12 +56,24 @@ const router = createRouter({
       children: [
         {
           path: '/login',
-          name: 'LoginView',
-          component: LoginView
-        }
+          name: 'loginView',
+          component: LoginView,
+        },
       ]
     }
+    
   ]
 })
+
+ export function isAuthenticated(to, from, next) {
+  const token = localStorage.getItem('token')
+   if (token) {
+     next() // Continua para a próxima rotaco
+  console.log('a')
+} else {
+     next('/login') // Redireciona para a página de login
+    console.log('b')
+   }
+ }
 
 export default router

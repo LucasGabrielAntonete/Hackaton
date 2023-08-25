@@ -4,7 +4,7 @@
     <div><img class="Momento" src="./Fachada.png" alt="" /></div>
     <h1>Quem Somos</h1>
     <section>
-      <div class="Linha">
+      <div class="Juncao">
         <div class="Historia">
           <p>
             Fundado em 2 de maio de 1996, nosso ateliê é especializado em locação de vestidos de
@@ -15,20 +15,40 @@
             conosco!"
           </p>
         </div>
-      </div>
+      
 
       <div class="Local">
+        
+      <div class="imagem">
+        <a href="https://www.google.com/maps/place/R.+Waldemiro+Jos%C3%A9+Borges,+526+-+Profipo,+Joinville+-+SC,+89233-048/@-26.3601989,-48.8428745,17z/data=!3m1!4b1!4m6!3m5!1s0x94deb72ba87f31a1:0x55820e302f0ee13c!8m2!3d-26.3601989!4d-48.8428745!16s%2Fg%2F11jyyl4r4w?entry=ttu">
         <img class="Mapa" src="./Maps.png" alt="" />
+      </a>
+        <div class="texto_mapa">
+          <font-awesome-icon :icon="['fas', 'location-dot']" class="icone"/>
+          <a href="https://www.google.com/maps/place/R.+Waldemiro+Jos%C3%A9+Borges,+526+-+Profipo,+Joinville+-+SC,+89233-048/@-26.3601989,-48.8428745,17z/data=!3m1!4b1!4m6!3m5!1s0x94deb72ba87f31a1:0x55820e302f0ee13c!8m2!3d-26.3601989!4d-48.8428745!16s%2Fg%2F11jyyl4r4w?entry=ttu">
+          <p>R. Waldemiro José Borges, 526 - Profipo, Joinville - SC, 89233-048</p>
+          </a>
+        </div>
       </div>
-    </section>
+      </div>
+    </div>
+    </section>          
 </template>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,100;1,300;1,400&display=swap');
 
+.Juncao{
+display: flex;
+}
+.Local{
+  display: flex;
+  
+}
 .Momento {
   width: 1900px;
   height: 600px;
 }
+
 
 h1 {
   text-align: center;
@@ -42,22 +62,53 @@ h1 {
   box-sizing: border-box;
   float: left;
   width: 50%;
-  height: 50px;
+  
   padding: 100px;
   text-align: justify;
   font-size: 25px;
   font-family: 'Lato', sans-serif;
+  
 }
 .Linha {
   content: '';
   display: contents;
   clear: both;
 }
-img.Mapa {
-  width: 600px;
-  border-radius: 50px;
-  box-sizing: border-box;
-  padding-top: 100px;
-  padding-left: 100px;
+
+.imagem {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 50px;
 }
+
+.Local img{
+  border-radius: 60px;
+  padding: 20px; 
+  width: 90%;
+  height: 90%; 
+  transition: 0.5s all ease-in-out;
+}
+.Local :hover img{
+  transform: scale(0.9);
+}
+
+.icone {
+  z-index: 999;
+  color: black  ;
+  position: relative;
+  left: 30px;
+  font-size: 25px;
+ 
+}
+
+.texto_mapa {
+  display: flex;
+  align-items:end;
+  gap: 50px;
+  text-align: justify;
+}
+  
+ 
+
 </style>
