@@ -68,7 +68,7 @@ const router = createRouter({
  export function isAuthenticated(to, from, next) {
   const token = localStorage.getItem('token')
    if (token) {
-     next() // Continua para a próxima rotaco
+     next() // Continua para a próxima rota
   console.log('a')
 } else {
      next('/login') // Redireciona para a página de login
