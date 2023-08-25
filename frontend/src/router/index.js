@@ -20,21 +20,28 @@ const router = createRouter({
           path: '/',
           component: HomeView,
           name: 'Home',
+          beforeEnter: isAuthenticated
         },
         {
           path: '/quem-somos',
           name: 'about',
           component: AboutView,
+          beforeEnter: isAuthenticated
+
         },
         {
           path: '/como-devolver',
           name: 'PoliticaDevolucao',
           component: PoliticaDevolucao,
+          beforeEnter: isAuthenticated
+
         },
         {
           path: '/produto/:id',
           name: 'ProdutoView',
           component: ProdutoView,
+          beforeEnter: isAuthenticated
+
         },
         {
           path: '/registro',
@@ -58,15 +65,15 @@ const router = createRouter({
   ]
 })
 
-// export function isAuthenticated(to, from, next) {
-//   const token = localStorage.getItem('token')
-//   if (token) {
-//     next() // Continua para a próxima rotaco
-//     console.log('a')
-//   } else {
-//     next('/login') // Redireciona para a página de login
-//     console.log('b')
-//   }
-// }
+ export function isAuthenticated(to, from, next) {
+  const token = localStorage.getItem('token')
+   if (token) {
+     next() // Continua para a próxima rotaco
+  console.log('a')
+} else {
+     next('/login') // Redireciona para a página de login
+    console.log('b')
+   }
+ }
 
 export default router
