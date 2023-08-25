@@ -5,6 +5,7 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 from rest_framework.permissions import AllowAny
 from usuario.models import Usuario
+from momentoespecial.models import Compra
 
 
 @api_view(['POST'])
@@ -18,4 +19,6 @@ def create_user(request):
         if email and password:
               user = Usuario.objects.create(email=email)  
               user.set_password(password)
-              user.save()
+        compra = Compra.objects.create(usuario=Usuario)
+        
+        user.save()
