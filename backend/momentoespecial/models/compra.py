@@ -12,8 +12,6 @@ class Compra(models.Model):
 
     usuario = models.ForeignKey(Usuario, on_delete=models.PROTECT, related_name="compras")
     status = models.IntegerField(choices=StatusCompra.choices,  default=StatusCompra.CARRINHO)
-    dataInicio = models.DateField()
-    dataFinal = models.DateField()
 
 
 class ItensCompra(models.Model):

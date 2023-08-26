@@ -28,6 +28,9 @@ export default {
     <h1>Produtos</h1>
     <hr />
     <h1>{{ produto.nome }}</h1>
+    <h1>
+      
+    </h1>
     <img :src="produto.capa.file" alt="">
 
 </template>
