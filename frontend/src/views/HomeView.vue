@@ -4,6 +4,7 @@ import CategoriaApi from '@/api/categorias'
 const produtoApi = new ProdutoApi()
 const categoriaApi = new CategoriaApi()
 
+
 export default {
   data() {
     return {
@@ -17,13 +18,26 @@ export default {
 }
 </script>
 <template>
+  <div class="h1lancamentos">
+    <h1>Lançamentos</h1>
+  </div>
   <div class="lancamentos">
     <div class="card-produto" v-for="lancamentos in categorias" :key="lancamentos.id">
       <img :src="lancamentos.capa.file" alt="" />
-      <router-link :to="'/api/produtos/por-categoria/6/' + lancamentos.id_lancamento"></router-link>
-      <h1>{{ lancamentos.nome }}</h1>
+      <router-link :to="'/api/produtos/por-categoria/6/' + lancamentos.id_lancamento">
+        <h1 class="h1produto">{{ lancamentos.nome }}</h1>
+        <h3>R$:{{ lancamentos.preco }}</h3>
+      </router-link>
+      <div class="left">
+        <div class="right">
+          <button class="buttonCarrinho">Alugar</button>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="divButtonVerMais">
+      <button class="buttonVerMais">Ver mais</button>
+    </div>
 
   <hr />
   <div class="produtos">
@@ -69,9 +83,12 @@ h1 {
   margin-top: 20px;
 }
 hr {
-  background-color: black !important;
-  height: 2px;
-  width: 90%;
+  border: 0;
+  border-top: 1px dashed #ccc;
+  border-bottom: 2px solid #ccc;
+  height: 3px;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 .produtos {
   /* margin: 200px; */
@@ -104,12 +121,41 @@ img {
 }
 
 .buttonCarrinho {
-  background-color: blue;
+  background-color: rgba(212, 186, 163, 1);
   border-radius: 30px;
   height: 30px;
   width: 100px;
   padding: 0 20px;
   position: absolute;
   margin-top: 30px;
+}
+
+.lancamentos {
+  margin-top: 60px;
+  margin-left: 10%;
+  margin-bottom: 0px;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  
+}
+.h1lancamentos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.divButtonVerMais {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.buttonVerMais {
+  background-color: rgba(212, 186, 163, 1);
+  border-radius: 30px;
+  height: 40px;
+  width: 100px;
+  margin-bottom:15px;
 }
 </style>
