@@ -8,7 +8,7 @@ class produto(models.Model):
     nome = models.CharField(max_length=50)
     descricao = models.CharField(max_length=200)
     quantidade = models.IntegerField(default=1,  null=True, blank=True)
-    preco = models.FloatField(max_digits=10, decimal_places=2)
+    preco = models.FloatField()
     categoriaNome = models.ForeignKey(categoria, on_delete=models.CASCADE)
     tamanho = models.ManyToManyField(tamanho, related_name="tamanhos")
     dataInicio = models.DateField(null=True, blank=True)
