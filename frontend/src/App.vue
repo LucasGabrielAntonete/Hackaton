@@ -1,8 +1,5 @@
+<script setup></script>
+
 <template>
-  <header>
-    <router-link :to="{ name: 'home' }">Home</router-link>
-  </header>
-  <main>
-    <RouterView />
-  </main>
+  <RouterView />
 </template>

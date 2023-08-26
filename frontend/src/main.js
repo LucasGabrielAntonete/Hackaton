@@ -1,15 +1,26 @@
-import { createApp } from "vue";
-import { createPinia } from "pinia";
+import App from './App.vue'
+import router from './router'
+import './assets/tailwind.css'
+import './assets/main.css'
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
-import App from "./App.vue";
-import router from "./router";
-import "./plugins/axios";
+import './plugins/axios'
 
-import "./assets/main.css";
+import { library } from '@fortawesome/fontawesome-svg-core'
 
-const app = createApp(App);
-("");
-app.use(createPinia());
-app.use(router);
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-app.mount("#app");
+/* import specific icons */
+import { faUserSecret, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+
+/* add icons to the library */
+library.add(faUserSecret, faLocationDot)
+
+const app = createApp(App)
+;('')
+app.use(createPinia())
+app.use(router)
+app.component('font-awesome-icon', FontAwesomeIcon)
+app.mount('#app')

@@ -1,14 +1,20 @@
+from rest_framework.fields import SerializerMethodField
 from rest_framework.serializers import ModelSerializer, CharField
 
 from momentoespecial.models import Compra, ItensCompra, produto
 
 
 class ItensCompraSerializer(ModelSerializer):
-    total = SerializerMethodField()
+    capa_url = SerializerMethodField()
+
+    def get_capa_url(self, obj):
+        if obj.produto.capa:
+            return self.context['request'].build_absolute_uri(obj.produto.capa.url)
+        return None
+
     class Meta:
         model = ItensCompra
-        fields = ["produtos"] 
-        depth = 1   
+        fields = ['id', 'produto', 'quantidade', 'capa_url']
 
     def get_total(self, obj):
      return obj.produto.preco
