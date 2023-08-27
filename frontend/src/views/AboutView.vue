@@ -83,7 +83,7 @@ h1 {
 .imagem {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   padding: 50px;
 }
 
@@ -108,7 +108,7 @@ h1 {
 
 .texto_mapa {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   gap: 50px;
   text-align: justify;
 }
