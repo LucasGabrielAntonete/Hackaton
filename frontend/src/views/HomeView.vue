@@ -3,19 +3,51 @@ import DestaquesApi from '@/api/destaques'
 import CategoriaApi from '@/api/categorias'
 const destaquesApi = new DestaquesApi()
 const categoriaApi = new CategoriaApi()
+import ProdutoApi from '@/api/produto'
+const produtoApi = new ProdutoApi()
+import i1 from "../components/img/carousel/i1.png"
+import i2 from "../components/img/carousel/i2.png"
+import i3 from "../components/img/carousel/i3.png"
+import i4 from "../components/img/carousel/i4.png"
+import i5 from "../components/img/carousel/i5.png" 
 
 export default {
   data() {
     return {
       destaques: [],
-      categorias: []
+      categorias: [],
+      produtos: [],
+      images: [], // Your array of images with "image_url"
+      currentIndex: 0,
+      slideWidth: 100,
+
+      
     }
   },
   async created() {
     this.destaques = await destaquesApi.buscarTodasOsDestaques()
     this.categorias = await categoriaApi.buscarTodasAsCategorias()
     console.log(this.categorias)
-  }
+    this.produtos = await produtoApi.buscarTodosOsProdutos()
+    this.images = 
+    [i1, i2, i3, i4, i5 ]
+  },
+  methods: {
+    prevSlide() {
+      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+    },
+    nextSlide() {
+      this.currentIndex = (this.currentIndex + 1) % this.images.length;
+    },
+  },
+  computed: {
+    innerStyles() {
+      return {
+        transform: `translateX(-${this.currentIndex * this.slideWidth}%)`,
+        transition: "transform 0.3s ease-in-out",
+      };
+    },
+  },
 }
 </script>
 <template>
@@ -61,8 +93,33 @@ export default {
           <button class="buttonCarrinho">Alugar</button>
         </div>
       </div>
+      </div>
+      </div>
+   
+      <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-inner" :style="innerStyles">
+        <div
+          v-for="(image, index) in images"
+          :key="index"
+          class="carousel-slide"
+        >
+          <img :src="image" alt="Slide Image" class="slide-image" />
+        </div>
+      </div>
+      <button class="next-button" @click="nextSlide">&gt;</button>
+      <button class="prev-button" @click="prevSlide">&lt;</button>
+
     </div>
   </div>
+  <div class="produtos">
+    <div class="card-produto" v-for="produto in produtos" :key="produto.id">
+      <img :src="produto.capa.file" alt=""/>
+      <router-link :to="'/produto/' + produto.id_produto">{{ produto.nome }}</router-link>
+    </div>
+  </div>
+
+    
 </template>
 
 <style scoped>
@@ -194,4 +251,51 @@ img {
   width: 100px;
   margin-bottom: 15px;
 }
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+}
+
+.slide-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
 </style>
