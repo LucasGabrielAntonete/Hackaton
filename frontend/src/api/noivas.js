@@ -19,6 +19,7 @@ export default class NoivaApi {
             accept: 'application/json'
           }
         })
+        console.log(data)
         return data
       } else {
         console.log('Não tem token')

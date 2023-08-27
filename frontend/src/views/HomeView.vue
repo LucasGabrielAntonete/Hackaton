@@ -9,11 +9,13 @@ export default {
   data() {
     return {
       produtos: [],
+      categorias: [],
     }
   },
   async created() {
     this.produtos = await produtoApi.buscarTodosOsProdutos()
     this.categorias = await categoriaApi.buscarTodasAsCategorias()
+    console.log(this.categorias)
   }
 }
 </script>

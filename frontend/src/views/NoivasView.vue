@@ -11,6 +11,7 @@ export default {
   },
   async created() {
     this.noivas = await noivaApi.buscarTodasAsNoivas()
+    console.log(this.noivas)
   }
 }
 
@@ -22,11 +23,11 @@ export default {
     <h1>Noivas</h1>
   </div>
   <div class="noivas">
-    <div class="card-produto" v-for="noivas in noiva" :key="noivas.id">
-      <img :src="noivas.capa.file" alt="" />
+    <div class="card-produto" v-for="noiva in noivas" :key="noiva.id">
+      <img :src="noiva.capa.file" alt="" />
       <router-link :to="'/api/produtos/por-categoria/4/'">
-        <h1 class="h1produto">{{ noivas.nome }}</h1>
-        <h3>R$:{{ noivas.preco }}</h3>
+        <h1 class="h1produto">{{ noiva.nome }}</h1>
+        <h3>R$:{{ noiva.preco }}</h3>
       </router-link>
     </div>
   </div>
