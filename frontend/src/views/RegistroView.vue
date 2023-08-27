@@ -88,6 +88,7 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
 .box-login {
   display: grid;
@@ -135,8 +136,7 @@ h1 {
 }
 
 h2 {
-  color: black;
-  font-size: 25px;
+  font-family: 'latos', sans-serif;
   text-align: center;
   padding-left: 57.1rem;
 }
@@ -169,6 +169,11 @@ h2 {
   margin-left: 55rem;
 }
 
+.input-field2:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+  background-color: rgb(216, 190, 168);
+}
 .input-field {
   width: 140%;
   text-align: center;
@@ -180,6 +185,7 @@ h2 {
 .input-field:hover {
   transform: scale(1.1);
   transition: all 0.5s;
+  background-color: rgb(216, 190, 168);
 }
 .input {
   display: block;
@@ -200,24 +206,15 @@ h2 {
   margin-left: 60rem;
   border: none;
 }
-.btn-entrar {
-  background-color: rgba(212, 186, 163, 1);
-  border-radius: 15px;
-  width: 120px;
-  height: 30;
-  margin-left: 60rem;
-  border: none;
-}
-.btn-entrar:hover {
-  background-color: rgb(216, 190, 168);
-  border-radius: 15px;
-  width: 120px;
-  height: 30;
-  margin-left: 60rem;
-  border: none;
+
+.buttonCadastrar:hover {
   transform: scale(1.1);
   transition: all 0.5s;
+  background-color: rgb(216, 190, 168);
 }
+
+
+
 fieldset {
   margin-top: 100px;
 }
