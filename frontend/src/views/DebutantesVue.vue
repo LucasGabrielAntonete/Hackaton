@@ -1,65 +1,38 @@
 <script>
-import NoivaApi from '@/api/noivas'
-import DamasApi from '../api/damas'
-const noivaApi = new NoivaApi()
-const damasApi = new DamasApi()
+import DebutantesApi from '../api/debutantes';
+const debutantesApi = new DebutantesApi()
 
 
 export default {
   data() {
     return {
-      noivas: [],
-      damas: [],
+      debutantes: [],
     }
   },
   async created() {
-    this.noivas = await noivaApi.buscarTodasAsNoivas()
-    this.damas = await damasApi.buscarTodasAsDamas()
-    console.log(this.noivas)
-    console.log(this.damas)
+    this.debutantes = await debutantesApi.buscarTodasAsDebutantes()
+    console.log(this.debutantes)
   }
 }
 
+
 </script>
+
 <template>
-
-
-  <div class="h1noivas">
-    <h1>Noivas</h1>
+      
+      <div class="h1noivas">
+    <h1>Debutantes</h1>
   </div>
   <hr>
   <div class="produtos">
-    <div class="card-produto" v-for="noiva in noivas" :key="noiva.id">
-      <img :src="noiva.capa.file" alt="" />
-      <router-link :to="'/api/produtos/por-categoria/4/'">
-        <div class="mid">
-        <h2 class="h1produto">Vestido {{ noiva.nome }}</h2>
-      </div>
-      <div class="lefttt">
-        <h3>R$:{{ noiva.preco }},00</h3>
-      </div>
-      </router-link>
-      <div class="left">
-        <div class="right">
-          <button class="buttonCarrinho">Alugar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="h1noivas">
-    <h1>Damas & Pajens</h1>
-  </div>
-  <hr>
-  <div class="produtos">
-    <div class="card-produto" v-for="dama in damas" :key="dama.id">
-      <img :src="dama.capa.file" alt="" />
+    <div class="card-produto" v-for="debutante in debutantes" :key="debutante.id">
+      <img :src="debutante.capa.file" alt="" />
       <router-link :to="'/api/produtos/por-categoria/2/'">
         <div class="mid">
-        <h2 class="h1produto">{{ dama.nome }}</h2>
+        <h2 class="h1produto">Vestido {{ debutante.nome }}</h2>
       </div>
       <div class="lefttt">
-        <h3>R$:{{ dama.preco }},00</h3>
+        <h3>R$:{{ debutante.preco }},00</h3>
       </div>
       </router-link>
       <div class="left">
@@ -70,12 +43,12 @@ export default {
     </div>
   </div>
 
-
-
-
-  
 </template>
+
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
 
 .h1produto {
   font-family: 'Lato', sans-serif;
@@ -127,15 +100,7 @@ h3 {
   align-items: left;
   margin-right: 100px;
 }
-.h1noivas {
-  font-family: 'Pinyon Script', cursive;
-  display: flex;
-  justify-content: left;
-  align-items: left;
-  margin-top: 20px;
-  margin-right: 110px;
-  margin-left: 80px;
-}
+
 
 
 h1 {
@@ -193,6 +158,15 @@ img {
   margin-top: 30px;
 }
 
+.h1noivas {
+  font-family: 'Pinyon Script', cursive;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-top: 20px;
+  margin-right: 110px;
+  margin-left: 80px;
+}
 
 
 </style>

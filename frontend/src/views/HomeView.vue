@@ -23,12 +23,17 @@ export default {
   <div class="h1lancamentos">
     <h1>Lançamentos</h1>
   </div>
+  <hr>
   <div class="lancamentos">
     <div class="card-produto" v-for="lancamentos in categorias" :key="lancamentos.id">
       <img :src="lancamentos.capa.file" alt="" />
       <router-link :to="'/api/produtos/por-categoria/6/' + lancamentos.id_lancamento">
+        <div class="mid">
         <h2 class="h1produto">Vestido {{ lancamentos.nome }}</h2>
-        <h3>R$:{{ lancamentos.preco }}</h3>
+        </div>
+        <div class="left">
+        <h3>R$:{{ lancamentos.preco }},00</h3>
+      </div>
       </router-link>
       <div class="left">
         <div class="right">
@@ -45,24 +50,26 @@ export default {
   <div class="produtos">
     <div class="card-produto" v-for="produto in produtos" :key="produto.id">
       <img :src="produto.capa.file" alt="" />
-      <router-link :to="'/produto/' + produto.id_produto"
-        ><h2 class="h1produto">Vestido {{ produto.nome }}</h2>
+      <router-link :to="'/produto/' + produto.id_produto"      
+        >
+        <div class="mid"><h2 class="h1produto">Vestido {{ produto.nome }}</h2>
+        </div>
+        <div class="left">
         <h3>R$: {{ produto.preco }},00</h3>
+      </div>
       </router-link>
-      <div class="left">
         <div class="right">
           <button class="buttonCarrinho">Alugar</button>
         </div>
-      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
 
 .h1produto {
-  font-family: 'Lato', sans-serif;
   margin-top: 2px;
   padding-top: 0px;
   margin-bottom: 0px;
@@ -83,6 +90,12 @@ h3 {
   align-items: left;
   
 }
+.lefttt{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-right: 150px;
+}
 
 h1 {
   font-family: 'Lato', sans-serif;
@@ -96,9 +109,23 @@ hr {
   border-top: 1px dashed #ccc;
   border-bottom: 2px solid #ccc;
   height: 3px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 155px;
+  margin-right: 235px;
 }
+
+.mid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left{
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-right: 100px;
+}
+
 .produtos {
   /* margin: 200px; */
   margin-top: 60px;
@@ -148,10 +175,13 @@ img {
   
 }
 .h1lancamentos {
+  font-family: 'Pinyon Script', cursive;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
+  margin-top: 20px;
+  margin-right: 110px;
+  margin-left: 80px;
 }
 
 .divButtonVerMais {

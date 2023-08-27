@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import FullLayout from '@/layout/FullLayout.vue'
 import BlankLayout from '@/layout/BlankLayout.vue'
-
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/LoginView.vue'
@@ -44,6 +43,11 @@ const router = createRouter({
           path: '/noivas',
           name: 'NoivasView',
           component: () => import('../views/NoivasView.vue')
+        },
+        {
+          path: '/debutantes',
+          name: 'DebutantesView',
+          component: () => import('../views/DebutantesVue.vue')
         },
         {
           path: '/registro',
