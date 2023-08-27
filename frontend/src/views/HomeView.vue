@@ -1,19 +1,18 @@
 <script>
-import ProdutoApi from '@/api/produto'
+import DestaquesApi from '@/api/destaques'
 import CategoriaApi from '@/api/categorias'
-const produtoApi = new ProdutoApi()
+const destaquesApi = new DestaquesApi()
 const categoriaApi = new CategoriaApi()
-
 
 export default {
   data() {
     return {
-      produtos: [],
-      categorias: [],
+      destaques: [],
+      categorias: []
     }
   },
   async created() {
-    this.produtos = await produtoApi.buscarTodosOsProdutos()
+    this.destaques = await destaquesApi.buscarTodasOsDestaques()
     this.categorias = await categoriaApi.buscarTodasAsCategorias()
     console.log(this.categorias)
   }
@@ -23,17 +22,17 @@ export default {
   <div class="h1lancamentos">
     <h1>Lançamentos</h1>
   </div>
-  <hr>
+  <hr />
   <div class="lancamentos">
     <div class="card-produto" v-for="lancamentos in categorias" :key="lancamentos.id">
       <img :src="lancamentos.capa.file" alt="" />
       <router-link :to="'/api/produtos/por-categoria/6/' + lancamentos.id_lancamento">
         <div class="mid">
-        <h2 class="h1produto">Vestido {{ lancamentos.nome }}</h2>
+          <h2 class="h1produto">Vestido {{ lancamentos.nome }}</h2>
         </div>
-        <div class="left">
-        <h3>R$:{{ lancamentos.preco }},00</h3>
-      </div>
+        <div class="lefttt">
+          <h3>R$:{{ lancamentos.preco }},00</h3>
+        </div>
       </router-link>
       <div class="left">
         <div class="right">
@@ -42,25 +41,26 @@ export default {
       </div>
     </div>
   </div>
-  <div class="divButtonVerMais">
-      <button class="buttonVerMais">Ver mais</button>
-    </div>
-
+  <div class="h1lancamentos">
+    <h1>Destaques</h1>
+  </div>
   <hr />
   <div class="produtos">
-    <div class="card-produto" v-for="produto in produtos" :key="produto.id">
-      <img :src="produto.capa.file" alt="" />
-      <router-link :to="'/produto/' + produto.id_produto"      
-        >
-        <div class="mid"><h2 class="h1produto">Vestido {{ produto.nome }}</h2>
+    <div class="card-produto" v-for="destaque in destaques" :key="destaque.id">
+      <img :src="destaque.capa.file" alt="" />
+      <router-link :to="'/produto/por-categoria/7/' + destaque.id_produto">
+        <div class="mid">
+          <h2 class="h1produto">Vestido {{ destaque.nome }}</h2>
         </div>
-        <div class="left">
-        <h3>R$: {{ produto.preco }},00</h3>
-      </div>
+        <div class="lefttt">
+          <h3>R$: {{ destaque.preco }},00</h3>
+        </div>
       </router-link>
+      <div class="left">
         <div class="right">
           <button class="buttonCarrinho">Alugar</button>
         </div>
+      </div>
     </div>
   </div>
 </template>
@@ -77,9 +77,8 @@ export default {
   justify-content: left;
   align-items: left;
 }
-h2{
+h2 {
   font-family: 'Lato', sans-serif;
-
 }
 h3 {
   font-family: 'Lato', sans-serif;
@@ -88,13 +87,12 @@ h3 {
   margin-left: 30px;
   justify-content: left;
   align-items: left;
-  
 }
-.lefttt{
+.lefttt {
   display: flex;
   justify-content: left;
   align-items: left;
-  margin-right: 150px;
+  margin-right: 100px;
 }
 
 h1 {
@@ -113,17 +111,17 @@ hr {
   margin-right: 235px;
 }
 
-.mid{
+.mid {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.left{
+.left {
   display: flex;
   justify-content: left;
   align-items: left;
-  margin-right: 100px;
+  margin-right: 150px;
 }
 
 .produtos {
@@ -172,7 +170,6 @@ img {
   margin-bottom: 0px;
   display: grid;
   grid-template-columns: repeat(3, 33%);
-  
 }
 .h1lancamentos {
   font-family: 'Pinyon Script', cursive;
@@ -195,6 +192,6 @@ img {
   border-radius: 30px;
   height: 40px;
   width: 100px;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 </style>

@@ -3,10 +3,6 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 
-import { useUserStore } from '../stores/counter'
-
-const userStore = useUserStore()
-
 export default {
   setup() {
     const email = ref('')
@@ -35,7 +31,7 @@ export default {
         )
         router.push('/login/')
         console.log(data)
-        userStore.user = data
+        
 
         // Redirecione para a página de login ou realize outras ações necessárias
       } catch (error) {
@@ -67,7 +63,7 @@ export default {
           alt=""
         />
       </div>
-      <form @submit.prevent="login">
+      <form>
         <fieldset>
           <h2 class="entrar">Cadastrar Conta</h2>
           <div class="input input-icons">
@@ -80,20 +76,13 @@ export default {
           </div>
           <div>
             <font-awesome-icon icon="fa-solid fa-lock" />
-            <input v-model="password2" type="password" placeholder="Confirm Password" />
+            <input class="input-field2" v-model="password2" type="password" placeholder="Confirm Password" />
           </div>
           <button @click="registerUser" class="buttonCadastrar">Cadastrar</button>
         </fieldset>
       </form>
     </div>
   </div>
-
-
-
-    <input v-model="email" placeholder="Email" />
-    <input v-model="password" type="password" placeholder="Password" />
-    <input v-model="password2" type="password" placeholder="Confirm Password" />
-    <button @click="registerUser">Register</button>
   </div>
 </template>
 
@@ -110,10 +99,11 @@ export default {
   margin: 60px auto 0;
   border: none;
   box-shadow: 4px 5px 12px rgb(138, 136, 136);
+  margin-bottom: 50px;
 }
 
 .imagem {
-  height: 600px;
+  height: 596px;
   width: 450px;
   margin-right: 0px;
 }
@@ -170,7 +160,14 @@ h2 {
   min-width: 40px;
 }
 
-
+.input-field2 {
+  width: 24.4%;
+  text-align: center;
+  border-radius: 6px;
+  background-color: rgba(212, 186, 163, 1);
+  border: none;
+  margin-left: 55rem;
+}
 
 .input-field {
   width: 140%;
@@ -194,7 +191,7 @@ h2 {
 
 .buttonCadastrar {
   display: absolute;
-  margin-top: 250px;
+  margin-top: 20px;
   margin-left: 100px;
   background-color: rgba(212, 186, 163, 1);
   border-radius: 15px;

@@ -1,4 +1,5 @@
-<script setup></script>
+<script setup> 
+</script>
 
 <template>
     <div><img class="Momento" src="../components/img/Fachada.png" alt="" /></div>
