@@ -34,13 +34,14 @@ export default {
   
 </template>
 <style scoped>
-.h1produto {
-  margin-top: 2px;
-  padding-top: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-  justify-content: center;
-  align-items: center;
+
+.produtos {
+  /* margin: 200px; */
+  margin-top: 60px;
+  margin-left: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  /* grid-auto-rows: 50%; */
 }
 
 .card-produto {
@@ -53,5 +54,18 @@ export default {
   align-items: center;
   margin-bottom: 130px;
 }
+
+
+.h1produto {
+  margin-top: 2px;
+  padding-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
 
 </style>
