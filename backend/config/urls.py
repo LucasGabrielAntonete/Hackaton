@@ -14,7 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from momentoespecial import adicionarCarrinho, buscarProdutos
+from momentoespecial import adicionarCarrinho, buscarProdutos, removerCarrinho
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
@@ -50,5 +50,6 @@ urlpatterns = [
     path('api/signup/', cadastro.create_user, name='create_user'),
     path('api/adicionar/', adicionarCarrinho.add_to_cart, name='add_to_cart'),
     path('api/get_cart/', buscarProdutos.get_cart, name='get_cart'),
+    path('api/remove_from_cart/', removerCarrinho.remove_from_cart, name='remove_from_cart')
 ]
 urlpatterns += static(settings.MEDIA_ENDPOINT, document_root=settings.MEDIA_ROOT)

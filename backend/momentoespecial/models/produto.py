@@ -11,6 +11,8 @@ class produto(models.Model):
     preco = models.FloatField()
     categoriaNome = models.ForeignKey(categoria, on_delete=models.CASCADE)
     tamanho = models.ManyToManyField(tamanho, related_name="tamanhos")
+    dataInicio = models.DateField(null=True, blank=True)
+    dataFinal = models.DateField(null=True, blank=True)
     capa = models.ForeignKey(
         Image,
         related_name="+",
@@ -20,5 +22,13 @@ class produto(models.Model):
         default=None,
     )
 
+    def calcular_preco_total(self):
+        if self.dataInicio and self.dataFinal:
+            dias_aluguel = (self.dataFinal - self.dataInicio).days
+            if dias_aluguel > 0:
+                return self.preco * dias_aluguel
+            else:
+                return 'Periodo Invalido'
+        
     def __str__(self):
         return self.nome

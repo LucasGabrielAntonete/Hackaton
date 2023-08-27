@@ -1,6 +1,6 @@
-
 <script>
 import axios from 'axios'
+import jwtDecode from 'jwt-decode'
 export default {
   data() {
     return {
@@ -31,7 +31,28 @@ export default {
       } catch (error) {
         console.error('Erro buscando ao buscar o produto.', error)
       }
-    }
+    },
+    async removeFromCart(produtoId) {
+      const token = localStorage.getItem('token');
+      const decodedToken = jwtDecode(token)
+      const usuarioId = decodedToken.user_id
+      try {
+        const response = await axios.post('/api/remove_from_cart/', {
+          produto_id: produtoId,
+          usuario_id: usuarioId,
+        }, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'multipart/form-data',
+            accept: 'application/json'
+          },
+        });
+        console.log(response.data.message);
+        this.buscarCarrinho();
+      } catch (error) {
+        console.error('Erro ao remover do carrinho:', error);
+      }
+  }
   }
 }
 </script>
@@ -46,7 +67,7 @@ export default {
           <h2 class="preco">R${{ (item.preco.toFixed(2)).replace(".",",")  }}</h2>  
           <h2 class="status">Em estoque</h2>
           <h2 class="desc">{{ item.descricao }}</h2>
-          <h2 class="remover">Remover</h2>
+          <h2 class="remover" @click="removeFromCart(item.id)">Remover</h2>
           </div>
         </div>
     </div>
@@ -72,6 +93,9 @@ export default {
   background-color: rgba(212, 186, 163, 0.8);
 }
 
+.remover:hover {
+  cursor: pointer;
+}
 
 .finalizacao{
   display: flex;
