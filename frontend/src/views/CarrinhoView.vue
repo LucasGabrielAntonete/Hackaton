@@ -79,7 +79,7 @@ export default {
   </div>
   </div>
 </template>
-<style>
+<style scoped>
 
 .comprar {
   background-color: rgba(212, 186, 163, 1);
