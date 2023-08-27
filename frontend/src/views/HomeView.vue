@@ -81,7 +81,7 @@ h3 {
   margin-left: 30px;
   justify-content: left;
   align-items: left;
-  color: ;
+  
 }
 
 h1 {
