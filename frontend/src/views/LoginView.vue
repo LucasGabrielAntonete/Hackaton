@@ -11,17 +11,17 @@
       </div>
       <form @submit.prevent="login">
         <fieldset>
-          <h2>Entrar na conta</h2>
-          <h2><router-link :to="{ name: 'RegistroView' }">Cadastrar</router-link></h2>
+          <h2 class="entrar">Entrar na conta</h2>
           <div class="input input-icons">
             <font-awesome-icon icon="fa-solid fa-envelope" />
-            <input class="input-field" type="email" name="email" required v-model="email" />
+            <input class="input-field" type="email" name="email" placeholder="Email" required v-model="email" />
           </div>
           <div class="input input-icons">
             <font-awesome-icon icon="fa-solid fa-lock" />
-            <input class="input-field" type="password" name="pass" required v-model="password" />
+            <input class="input-field" type="password" name="pass" placeholder="Password" required v-model="password" />
           </div>
           <button type="submit" class="btn-entrar" @click="$router.push('/')">Login</button>
+          <button class="buttonCadastrar"><router-link  :to="{ name: 'RegistroView' }">Cadastrar</router-link></button>
         </fieldset>
       </form>
     </div>
@@ -66,7 +66,7 @@ async function login() {
 
 .box-login {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 5fr;
   height: 596px;
   width: 80%;
   border: 0;
@@ -78,6 +78,8 @@ async function login() {
 
 .imagem {
   height: 600px;
+  width: 450px;
+  margin-right: 0px;
 }
 
 .ftLogin {
@@ -89,6 +91,10 @@ form {
   display: flex;
   justify-content: flex-end;
   align-items: top;
+  margin-left: 0%;
+  margin-top: 20px;
+  margin-right: 5px
+  padding-right 15px;
 }
 h1 {
   font-size: 55px;
@@ -97,11 +103,16 @@ h1 {
   font-weight: normal;
   margin-top: 2rem;
 }
+
+::placeholder{
+  color: black;
+}
+
 h2 {
   color: black;
-  font-size: 30px;
-  text-align: left;
-  padding-left: 55rem;
+  font-size: 25px;
+  text-align: center;
+  padding-left: 57.1rem;
 }
 .main {
   display: flexbox;
@@ -123,14 +134,19 @@ h2 {
   min-width: 40px;
 }
 
+
+
 .input-field {
-  width: 150%;
-  padding-left: 40px;
-  padding-right: 3px;
+  width: 140%;
   text-align: center;
   border-radius: 6px;
   background-color: rgba(212, 186, 163, 1);
   border: none;
+}
+
+.input-field:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
 }
 .input {
   display: block;
@@ -138,6 +154,18 @@ h2 {
   width: 190px;
   height: 20px;
   margin-left: 55rem;
+}
+
+.buttonCadastrar {
+  display: absolute;
+  margin-top: 250px;
+  margin-left: 100px;
+  background-color: rgba(212, 186, 163, 1);
+  border-radius: 15px;
+  width: 120px;
+  height: 30;
+  margin-left: 60rem;
+  border: none;
 }
 .btn-entrar {
   background-color: rgba(212, 186, 163, 1);
@@ -154,6 +182,8 @@ h2 {
   height: 30;
   margin-left: 60rem;
   border: none;
+  transform: scale(1.1);
+  transition: all 0.5s;
 }
 fieldset {
   margin-top: 100px;
