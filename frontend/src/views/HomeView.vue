@@ -8,7 +8,7 @@ const categoriaApi = new CategoriaApi()
 export default {
   data() {
     return {
-      produtos: []
+      produtos: [],
     }
   },
   async created() {

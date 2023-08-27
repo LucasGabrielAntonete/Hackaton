@@ -8,6 +8,7 @@ import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/LoginView.vue'
 import PoliticaDevolucao from '../views/PoliticaDevolucao.vue'
 import ProdutoView from '../views/ProdutoView.vue'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -38,6 +39,11 @@ const router = createRouter({
           name: 'ProdutoView',
           component: ProdutoView,
           beforeEnter: isAuthenticated
+        },
+        {
+          path: '/noivas',
+          name: 'NoivasView',
+          component: () => import('../views/NoivasView.vue')
         },
         {
           path: '/registro',
