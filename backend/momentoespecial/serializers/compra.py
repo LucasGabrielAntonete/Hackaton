@@ -7,6 +7,11 @@ from momentoespecial.models import Compra, ItensCompra, produto
 class ItensCompraSerializer(ModelSerializer):
     capa_url = SerializerMethodField()
 
+    tamanho = CharField()
+
+    def get_tamanho(self, obj):
+        return obj.produto.tamanho.tamanho
+
     def get_capa_url(self, obj):
         if obj.produto.capa:
             return self.context['request'].build_absolute_uri(obj.produto.capa.url)
@@ -14,7 +19,7 @@ class ItensCompraSerializer(ModelSerializer):
 
     class Meta:
         model = ItensCompra
-        fields = ['id', 'produto', 'quantidade', 'capa_url']
+        fields = ['id', 'produto', 'quantidade', 'capa_url', 'tamanho']
 
     def get_total(self, obj):
      return obj.produto.preco

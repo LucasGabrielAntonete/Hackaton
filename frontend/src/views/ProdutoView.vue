@@ -6,13 +6,18 @@ export default {
     return {
       produto: {
         capa: {}
-      }
+      },
+      tamanhoEscolhido: 0,
     }
   },
   mounted() {
     this.buscarProduto()
   },
   methods: {
+    async escolherTamanho(tamanho){
+      this.tamanhoEscolhido = tamanho
+      console.log(this.tamanhoEscolhido)
+    },
     async buscarProduto() { 
       const produtoId = this.$route.params.id
       const token = localStorage.getItem('token')
@@ -51,6 +56,7 @@ export default {
             produto_id: Number(produtoId),
             quantidade: 1, 
             usuario: usuarioId,
+            tamanho: this.tamanhoEscolhido
           },
           {
             headers: {
@@ -80,7 +86,7 @@ export default {
       <hr>
       <div class="tamanhos">
           <div v-for="i in produto.tamanho" :key="i.id">
-        <h1 class="tamanho">{{ i.tamanho }}</h1>
+        <h1 class="tamanho" @click="escolherTamanho(i.id)">{{ i.tamanho }}</h1>
         </div>
     </div>
     <div class="comprar"><button @click="addToCart">Adicionar ao Carrinho</button></div>
@@ -91,8 +97,13 @@ export default {
 
 <style scoped>
 .comprar{
-  justify-self: flex-end;
-  self
+  background-color: rgba(212, 186, 163, 1);
+  width: fit-content;
+  padding: 5px;
+  font-size: large;
+  border: 1px solid rgba(212, 186, 163, 1);
+  border-radius: 15px;
+  margin-top: 10px;
 }
 
 hr{
@@ -129,7 +140,15 @@ hr{
   padding-bottom: 5px;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 }
+
+.tamanho:active{
+  background-color: rgba(212, 186, 163, 1);
+}
+
+
+
 
 .preco{
   font-size: 25px;
@@ -145,6 +164,8 @@ hr{
 }
 
 .info{
+  display: flex;
+  flex-direction: column;
   width: 70%;
 }
 img{
