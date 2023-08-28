@@ -76,7 +76,7 @@ export default {
   <div class="lancamentos">
     <div class="card-produto" v-for="lancamentos in categorias" :key="lancamentos.id">
       <img :src="lancamentos.capa.file" alt="" />
-      <router-link :to="'/api/produtos/por-categoria/6/' + lancamentos.id_lancamento">
+      <router-link :to="'/produto/' + lancamentos.id_produto">
         <div class="mid">
           <h2 class="h1produto">Vestido {{ lancamentos.nome }}</h2>
         </div>
@@ -98,7 +98,7 @@ export default {
   <div class="produtos">
     <div class="card-produto" v-for="destaque in destaques" :key="destaque.id">
       <img :src="destaque.capa.file" alt="" />
-      <router-link :to="'/produto/por-categoria/7/' + destaque.id_produto">
+      <router-link :to="'/produto/' + destaque.id_produto">
         <div class="mid">
           <h2 class="h1produto">Vestido {{ destaque.nome }}</h2>
         </div>

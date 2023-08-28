@@ -6,6 +6,7 @@ export default {
     return {
       ItensCarrinho: [],
       total: 0,
+
     }
   },
   mounted() {
@@ -67,7 +68,9 @@ export default {
           <h2 class="preco">R${{ (item.preco.toFixed(2)).replace(".",",")  }}</h2>  
           <h2 class="status">Em estoque</h2>
           <h2 class="desc">{{ item.descricao }}</h2>
-          <h2 class="desc">{{ item.tamanho }}</h2>
+          <div>
+          <input type="date" v-model="dataInicio"> - <input type="date" v-model="dataFinal">
+          </div>
           <h2 class="remover" @click="removeFromCart(item.id)">Remover</h2>
           </div>
         </div>

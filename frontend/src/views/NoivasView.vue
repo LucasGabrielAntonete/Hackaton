@@ -31,12 +31,12 @@ export default {
   <div class="produtos">
     <div class="card-produto" v-for="noiva in noivas" :key="noiva.id">
       <img :src="noiva.capa.file" alt="" />
-      <router-link :to="'/api/produtos/por-categoria/4/'">
+      <router-link :to="'/produto/' + noiva.id_produto">
         <div class="mid">
         <h2 class="h1produto">Vestido {{ noiva.nome }}</h2>
       </div>
       <div class="lefttt">
-        <h3>R$:{{ noiva.preco }},00</h3>
+        <h3>R${{ noiva.preco }},00</h3>
       </div>
       </router-link>
       <div class="left">

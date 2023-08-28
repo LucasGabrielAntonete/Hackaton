@@ -1,13 +1,7 @@
 import axios from "axios";
 
-const token = localStorage.getItem('token')
-const config = {
-  headers: {
-    Authorization: `Bearer ${token}`,
-    'Content-Type': 'multipart/form-data',
-    accept: 'application/json'
-  }
-}
+
+
 
 export default class DebutantesApi {
     async buscarTodasAsDebutantes() {

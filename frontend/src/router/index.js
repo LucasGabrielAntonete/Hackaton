@@ -6,7 +6,6 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import LoginView from '../views/LoginView.vue'
 import PoliticaDevolucao from '../views/PoliticaDevolucao.vue'
-import ProdutoView from '../views/ProdutoView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,7 +32,7 @@ const router = createRouter({
           beforeEnter: isAuthenticated
         },
         {
-          path: '/produto/',
+          path: '/produto/:id',
           name: 'ProdutoView',
           component: () => import('../views/ProdutoView.vue')
         },
@@ -56,8 +55,8 @@ const router = createRouter({
           path: '/carrinho',
           name: 'CarrinhoView',
           component: () => import('../views/CarrinhoView.vue')
-        }
-      ]
+        },
+              ]
     },
     {
       path: '/',
