@@ -51,6 +51,24 @@ export default {
 }
 </script>
 <template>
+     <div class="carousel-container">
+    <div class="carousel">
+      <div class="carousel-inner" :style="innerStyles">
+        <div
+          v-for="(image, index) in images"
+          :key="index"
+          class="carousel-slide"
+        >
+          <img :src="image" alt="Slide Image" class="slide-image" />
+        </div>
+      </div>
+      <button class="next-button" @click="nextSlide">&gt;</button>
+      <button class="prev-button" @click="prevSlide">&lt;</button>
+
+    </div>
+  </div>
+
+
   <div class="h1lancamentos">
     <h1>Lançamentos</h1>
   </div>
@@ -96,35 +114,14 @@ export default {
       </div>
       </div>
    
-      <div class="carousel-container">
-    <div class="carousel">
-      <div class="carousel-inner" :style="innerStyles">
-        <div
-          v-for="(image, index) in images"
-          :key="index"
-          class="carousel-slide"
-        >
-          <img :src="image" alt="Slide Image" class="slide-image" />
-        </div>
-      </div>
-      <button class="next-button" @click="nextSlide">&gt;</button>
-      <button class="prev-button" @click="prevSlide">&lt;</button>
-
-    </div>
-  </div>
-  <div class="produtos">
-    <div class="card-produto" v-for="produto in produtos" :key="produto.id">
-      <img :src="produto.capa.file" alt=""/>
-      <router-link :to="'/produto/' + produto.id_produto">{{ produto.nome }}</router-link>
-    </div>
-  </div>
-
+   
     
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
+
 
 .h1produto {
   margin-top: 2px;
@@ -259,7 +256,10 @@ img {
   margin: 0 auto;
   overflow: hidden;
   border-radius: 10px;
+  margin-top: 20px;
+ 
 }
+
 
 .carousel-inner {
   display: flex;
