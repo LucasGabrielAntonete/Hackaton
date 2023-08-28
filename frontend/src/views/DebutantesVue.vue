@@ -1,12 +1,11 @@
 <script>
-import DebutantesApi from '../api/debutantes';
+import DebutantesApi from '../api/debutantes'
 const debutantesApi = new DebutantesApi()
-
 
 export default {
   data() {
     return {
-      debutantes: [],
+      debutantes: []
     }
   },
   async created() {
@@ -14,41 +13,38 @@ export default {
     console.log(this.debutantes)
   }
 }
-
-
 </script>
 
 <template>
-      
-      <div class="h1noivas">
+  <div class="h1noivas">
     <h1>Debutantes</h1>
   </div>
-  <hr>
+  <hr />
   <div class="produtos">
     <div class="card-produto" v-for="debutante in debutantes" :key="debutante.id">
       <img :src="debutante.capa.file" alt="" />
-      
-        <div class="mid">
+
+      <div class="mid">
         <h2 class="h1produto">Vestido {{ debutante.nome }}</h2>
       </div>
       <div class="lefttt">
         <h3>R${{ debutante.preco }},00</h3>
       </div>
-    
+
       <div class="left">
         <div class="right">
-          <router-link :to="'/produto/' + debutante.id_produto"><button class="buttonCarrinho" >Ver Vestido</button></router-link>
+          <router-link :to="'/produto/' + debutante.id_produto"
+            ><button class="buttonCarrinho">Ver Vestido</button></router-link
+          >
         </div>
       </div>
     </div>
   </div>
-
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-
 
 .h1produto {
   font-family: 'Lato', sans-serif;
@@ -60,21 +56,19 @@ export default {
   align-items: left;
 }
 
-.left{
+.left {
   display: flex;
   justify-content: left;
   align-items: left;
   margin-right: 150px;
 }
 
-h2{
+h2 {
   font-family: 'Lato', sans-serif;
-  
 }
 h3 {
   display: absolute;
   font-family: 'Lato', sans-serif;
-  
 }
 
 .buttonCarrinho {
@@ -87,21 +81,18 @@ h3 {
   margin-top: 30px;
 }
 
-
-.mid{
+.mid {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.lefttt{
+.lefttt {
   display: flex;
   justify-content: left;
   align-items: left;
   margin-right: 100px;
 }
-
-
 
 h1 {
   font-family: 'Lato', sans-serif;
@@ -167,6 +158,4 @@ img {
   margin-right: 110px;
   margin-left: 80px;
 }
-
-
 </style>

@@ -3,25 +3,37 @@
     <h1>Momento Especial</h1>
     <div class="box-login">
       <div class="imagem">
-        <img
-          class="ftLogin"
-          src="../components/img/ftLogin.jpg"
-          alt=""
-        />
+        <img class="ftLogin" src="../components/img/ftLogin.jpg" alt="" />
       </div>
       <form @submit.prevent="login">
         <fieldset>
           <h2 class="entrar">Entrar na conta</h2>
           <div class="input input-icons">
             <font-awesome-icon icon="fa-solid fa-envelope" />
-            <input class="input-field" type="email" name="email" placeholder="Email" required v-model="email" />
+            <input
+              class="input-field"
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              v-model="email"
+            />
           </div>
           <div class="input input-icons">
             <font-awesome-icon icon="fa-solid fa-lock" />
-            <input class="input-field" type="password" name="pass" placeholder="Password" required v-model="password" />
+            <input
+              class="input-field"
+              type="password"
+              name="pass"
+              placeholder="Password"
+              required
+              v-model="password"
+            />
           </div>
           <button type="submit" class="btn-entrar" @click="$router.push('/')">Login</button>
-          <button class="buttonCadastrar"><router-link  :to="{ name: 'RegistroView' }">Cadastrar</router-link></button>
+          <button class="buttonCadastrar">
+            <router-link :to="{ name: 'RegistroView' }">Cadastrar</router-link>
+          </button>
         </fieldset>
       </form>
     </div>
@@ -93,8 +105,7 @@ form {
   align-items: top;
   margin-left: 0%;
   margin-top: 20px;
-  margin-right: 5px
-  padding-right 15px;
+  margin-right: 5px padding-right 15px;
 }
 h1 {
   font-size: 55px;
@@ -104,7 +115,7 @@ h1 {
   margin-top: 2rem;
 }
 
-::placeholder{
+::placeholder {
   color: black;
 }
 
@@ -133,8 +144,6 @@ h2 {
   padding: 3px 0;
   min-width: 40px;
 }
-
-
 
 .input-field {
   width: 140%;

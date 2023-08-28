@@ -67,7 +67,6 @@ h1 {
   font-weight: normal;
 }
 .Historia {
-
   float: left;
   width: 50%;
   padding: 100px;
@@ -85,7 +84,7 @@ h1 {
   flex-direction: column;
   padding: 50px;
   width: 70%;
-  margin:auto
+  margin: auto;
 }
 
 .Local img {

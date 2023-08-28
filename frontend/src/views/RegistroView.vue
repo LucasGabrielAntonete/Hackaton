@@ -31,7 +31,6 @@ export default {
         )
         router.push('/login/')
         console.log(data)
-        
 
         // Redirecione para a página de login ou realize outras ações necessárias
       } catch (error) {
@@ -49,40 +48,53 @@ export default {
 }
 </script>
 
-
 <template>
   <div>
-
     <div class="main">
-    <h1>Momento Especial</h1>
-    <div class="box-login">
-      <div class="imagem">
-        <img
-          class="ftLogin"
-          src="../components/img/ftLogin.jpg"
-          alt=""
-        />
+      <h1>Momento Especial</h1>
+      <div class="box-login">
+        <div class="imagem">
+          <img class="ftLogin" src="../components/img/ftLogin.jpg" alt="" />
+        </div>
+        <form>
+          <fieldset>
+            <h2 class="entrar">Cadastrar Conta</h2>
+            <div class="input input-icons">
+              <font-awesome-icon icon="fa-solid fa-envelope" />
+              <input
+                class="input-field"
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                v-model="email"
+              />
+            </div>
+            <div class="input input-icons">
+              <font-awesome-icon icon="fa-solid fa-lock" />
+              <input
+                class="input-field"
+                type="password"
+                name="pass"
+                placeholder="Password"
+                required
+                v-model="password"
+              />
+            </div>
+            <div>
+              <font-awesome-icon icon="fa-solid fa-lock" />
+              <input
+                class="input-field2"
+                v-model="password2"
+                type="password"
+                placeholder="Confirm Password"
+              />
+            </div>
+            <button @click="registerUser" class="buttonCadastrar">Cadastrar</button>
+          </fieldset>
+        </form>
       </div>
-      <form>
-        <fieldset>
-          <h2 class="entrar">Cadastrar Conta</h2>
-          <div class="input input-icons">
-            <font-awesome-icon icon="fa-solid fa-envelope" />
-            <input class="input-field" type="email" name="email" placeholder="Email" required v-model="email" />
-          </div>
-          <div class="input input-icons">
-            <font-awesome-icon icon="fa-solid fa-lock" />
-            <input class="input-field" type="password" name="pass" placeholder="Password" required v-model="password" />
-          </div>
-          <div>
-            <font-awesome-icon icon="fa-solid fa-lock" />
-            <input class="input-field2" v-model="password2" type="password" placeholder="Confirm Password" />
-          </div>
-          <button @click="registerUser" class="buttonCadastrar">Cadastrar</button>
-        </fieldset>
-      </form>
     </div>
-  </div>
   </div>
 </template>
 
@@ -120,8 +132,7 @@ form {
   align-items: top;
   margin-left: 0%;
   margin-top: 20px;
-  margin-right: 5px
-  padding-right 15px;
+  margin-right: 5px padding-right 15px;
 }
 h1 {
   font-size: 55px;
@@ -131,7 +142,7 @@ h1 {
   margin-top: 2rem;
 }
 
-::placeholder{
+::placeholder {
   color: black;
 }
 
@@ -213,8 +224,6 @@ h2 {
   background-color: rgb(216, 190, 168);
 }
 
-
-
 fieldset {
   margin-top: 100px;
 }
@@ -225,5 +234,3 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px rgba(212, 186, 163, 1) inset !important;
 }
 </style>
-
-

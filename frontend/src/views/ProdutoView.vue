@@ -7,18 +7,18 @@ export default {
       produto: {
         capa: {}
       },
-      tamanhoEscolhido: 0,
+      tamanhoEscolhido: 0
     }
   },
   mounted() {
     this.buscarProduto()
   },
   methods: {
-    async escolherTamanho(tamanho){
+    async escolherTamanho(tamanho) {
       this.tamanhoEscolhido = tamanho
       console.log(this.tamanhoEscolhido)
     },
-    async buscarProduto() { 
+    async buscarProduto() {
       const produtoId = this.$route.params.id
       const token = localStorage.getItem('token')
       try {
@@ -41,7 +41,7 @@ export default {
         const produtoId = this.$route.params.id
         const decodedToken = jwtDecode(token)
         const usuarioId = decodedToken.user_id
-      
+
         const resposta = await axios.get(`/produtos/${produtoId}/`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -51,10 +51,11 @@ export default {
         })
         this.produto = resposta.data
         console.log(produtoId)
-        const response = await axios.post('/api/adicionar/',
+        const response = await axios.post(
+          '/api/adicionar/',
           {
             produto_id: Number(produtoId),
-            quantidade: 1, 
+            quantidade: 1,
             usuario: usuarioId,
             tamanho: this.tamanhoEscolhido
           },
@@ -62,41 +63,46 @@ export default {
             headers: {
               'Content-Type': 'application/json',
               Accept: 'application/json'
-            } 
+            }
           }
-        );
-        console.log(response.data.message);
+        )
+        console.log(response.data.message)
       } catch (error) {
-        console.error('Erro ao adicionar ao carrinho:', error);
+        console.error('Erro ao adicionar ao carrinho:', error)
       }
-    },
+    }
   }
-};
-  
+}
 </script>
 
 <template>
-  
   <div class="produto">
     <img :src="produto.capa.file" alt="" />
     <div class="info">
       <h1 class="nome">{{ produto.nome }}</h1>
       <h1 class="preco">R${{ produto.preco }}</h1>
       <h1 class="desc">{{ produto.descricao }}</h1>
-      <hr>
+      <hr />
+      <div class="date">
+        <input type="date"> - <input type="date"> 
+      </div>
+      
       <div class="tamanhos">
-          <div v-for="i in produto.tamanho" :key="i.id">
-        <h1 class="tamanho" @click="escolherTamanho(i.id)">{{ i.tamanho }}</h1>
+        <div v-for="i in produto.tamanho" :key="i.id">
+          <h1 class="tamanho" @click="escolherTamanho(i.id)">{{ i.tamanho }}</h1>
         </div>
+      </div>
+      <div class="comprar"><button @click="addToCart">Adicionar ao Carrinho</button></div>
     </div>
-    <div class="comprar"><button @click="addToCart">Adicionar ao Carrinho</button></div>
-
   </div>
-</div>
 </template>
 
 <style scoped>
-.comprar{
+
+.date{
+  margin-bottom: 5px;
+}
+.comprar {
   background-color: rgba(212, 186, 163, 1);
   width: fit-content;
   padding: 5px;
@@ -106,14 +112,15 @@ export default {
   margin-top: 10px;
 }
 
-hr{
+hr {
   width: 50%;
   margin: 20px;
   padding: 0;
   border: 1px solid black;
   border-radius: 10px;
-  margin-bottom: 20px;}
-.nome{
+  margin-bottom: 20px;
+}
+.nome {
   font-size: 30px;
   line-height: 50%;
   font-weight: bold;
@@ -121,16 +128,16 @@ hr{
   padding: 0;
 }
 
-.desc{
+.desc {
   width: 50%;
 }
 
-.tamanhos{
-  display:flex;
+.tamanhos {
+  display: flex;
   flex-direction: row;
   gap: 30px;
 }
-.tamanho{
+.tamanho {
   border: 1px solid black;
   border-radius: 100%;
   font-size: 20px;
@@ -143,19 +150,16 @@ hr{
   cursor: pointer;
 }
 
-.tamanho:active{
+.tamanho:active {
   background-color: rgba(212, 186, 163, 1);
 }
 
-
-
-
-.preco{
+.preco {
   font-size: 25px;
   margin: 0;
   padding: 0;
 }
-.produto{
+.produto {
   display: flex;
   flex-direction: row;
   gap: 20px;
@@ -163,12 +167,12 @@ hr{
   margin: 50px auto;
 }
 
-.info{
+.info {
   display: flex;
   flex-direction: column;
   width: 70%;
 }
-img{
+img {
   width: 30%;
   border-radius: 10px;
 }

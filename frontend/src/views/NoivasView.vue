@@ -4,12 +4,11 @@ import DamasApi from '../api/damas'
 const noivaApi = new NoivaApi()
 const damasApi = new DamasApi()
 
-
 export default {
   data() {
     return {
       noivas: [],
-      damas: [],
+      damas: []
     }
   },
   async created() {
@@ -19,29 +18,27 @@ export default {
     console.log(this.damas)
   }
 }
-
 </script>
 <template>
-
-
   <div class="h1noivas">
     <h1>Noivas</h1>
   </div>
-  <hr>
+  <hr />
   <div class="produtos">
     <div class="card-produto" v-for="noiva in noivas" :key="noiva.id">
       <img :src="noiva.capa.file" alt="" />
-      <router-link :to="'/produto/' + noiva.id_produto">
-        <div class="mid">
+
+      <div class="mid">
         <h2 class="h1produto">Vestido {{ noiva.nome }}</h2>
       </div>
       <div class="lefttt">
         <h3>R${{ noiva.preco }},00</h3>
       </div>
-      </router-link>
       <div class="left">
         <div class="right">
-          <button class="buttonCarrinho">Alugar</button>
+          <router-link :to="'/produto/' + noiva.id_produto"
+            ><button class="buttonCarrinho">Alugar</button></router-link
+          >
         </div>
       </div>
     </div>
@@ -50,17 +47,17 @@ export default {
   <div class="h1noivas">
     <h1>Damas & Pajens</h1>
   </div>
-  <hr>
+  <hr />
   <div class="produtos">
     <div class="card-produto" v-for="dama in damas" :key="dama.id">
       <img :src="dama.capa.file" alt="" />
       <router-link :to="'/api/produtos/por-categoria/2/'">
         <div class="mid">
-        <h2 class="h1produto">{{ dama.nome }}</h2>
-      </div>
-      <div class="lefttt">
-        <h3>R$:{{ dama.preco }},00</h3>
-      </div>
+          <h2 class="h1produto">{{ dama.nome }}</h2>
+        </div>
+        <div class="lefttt">
+          <h3>R$:{{ dama.preco }},00</h3>
+        </div>
       </router-link>
       <div class="left">
         <div class="right">
@@ -69,14 +66,8 @@ export default {
       </div>
     </div>
   </div>
-
-
-
-
-  
 </template>
 <style scoped>
-
 .h1produto {
   font-family: 'Lato', sans-serif;
   margin-top: 2px;
@@ -87,21 +78,19 @@ export default {
   align-items: left;
 }
 
-.left{
+.left {
   display: flex;
   justify-content: left;
   align-items: left;
   margin-right: 150px;
 }
 
-h2{
+h2 {
   font-family: 'Lato', sans-serif;
-  
 }
 h3 {
   display: absolute;
   font-family: 'Lato', sans-serif;
-  
 }
 
 .buttonCarrinho {
@@ -114,14 +103,13 @@ h3 {
   margin-top: 30px;
 }
 
-
-.mid{
+.mid {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.lefttt{
+.lefttt {
   display: flex;
   justify-content: left;
   align-items: left;
@@ -136,7 +124,6 @@ h3 {
   margin-right: 110px;
   margin-left: 80px;
 }
-
 
 h1 {
   font-family: 'Lato', sans-serif;
@@ -192,7 +179,4 @@ img {
   position: absolute;
   margin-top: 30px;
 }
-
-
-
 </style>

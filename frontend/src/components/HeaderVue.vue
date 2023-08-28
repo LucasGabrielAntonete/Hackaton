@@ -1,5 +1,13 @@
 <script setup>
 import { onMounted } from 'vue'
+import { ref } from 'vue'
+import axios from 'axios'
+import produtoApi from '../api/produto'
+const ProdutoApi = new produtoApi()
+
+const produtos = ref([])
+
+const procurarProdutos = ref('')
 
 function getHeightHeader() {
   const header = document.querySelector('header')
@@ -17,10 +25,23 @@ function getHeightHeader() {
   console.log('aa')
 }
 
+async function performSearch() {
+  axios
+    .get(`/api/produtos/?search=${procurarProdutos.value}`)
+    .then((response) => {
+      this.produtos = response.data
+    })
+    .catch((error) => {
+      console.error('Erro ao buscar produtos:', error)
+    })
+}
+
 window.addEventListener('resize', getHeightHeader)
 
-onMounted(() => {
-  getHeightHeader()
+onMounted(async () => {
+  getHeightHeader(),
+    (produtos.value = await ProdutoApi.buscarTodosOsProdutos()),
+    console.log(produtos)
 })
 </script>
 
@@ -34,13 +55,19 @@ onMounted(() => {
         </div>
       </RouterLink>
       <div class="search">
-        <input type="text" class="search-input" placeholder="O que você está buscando?" />
+        <input
+          v-model="procurarProdutos"
+          type="text"
+          class="search-input"
+          placeholder="O que você está buscando?"
+        />
         <svg
           width="20px"
           height="20px"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          @click="performSearch()"
         >
           <path
             d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
@@ -52,30 +79,6 @@ onMounted(() => {
         </svg>
       </div>
       <div class="icons">
-        <div class="icon-heart">
-          <svg
-            width="30px"
-            height="30px"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M12.33 17.45C12.15 17.51 11.84 17.51 11.66 17.45C10.1 16.92 6.59998 14.69 6.59998 10.91C6.59998 9.24 7.93998 7.89001 9.59998 7.89001C10.58 7.89001 11.45 8.36001 12 9.10001C12.54 8.37001 13.42 7.89001 14.4 7.89001C16.06 7.89001 17.4 9.24 17.4 10.91C17.4 14.69 13.9 16.92 12.33 17.45Z"
-              stroke="#000000"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
         <div class="icon-bag" @click="$router.push({ name: 'CarrinhoView' })">
           <svg
             width="30px"
@@ -124,9 +127,7 @@ onMounted(() => {
       </div>
     </div>
     <nav class="menu">
-      <button class="component-nav" @click="$router.push({ name: 'Home' })">
-        Home
-      </button>
+      <button class="component-nav" @click="$router.push({ name: 'Home' })">Home</button>
       <button class="component-nav" @click="$router.push({ name: 'DebutantesView' })">
         Debutantes
       </button>

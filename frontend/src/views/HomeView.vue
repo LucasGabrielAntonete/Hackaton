@@ -5,11 +5,11 @@ const destaquesApi = new DestaquesApi()
 const categoriaApi = new CategoriaApi()
 import ProdutoApi from '@/api/produto'
 const produtoApi = new ProdutoApi()
-import i1 from "../components/img/carousel/i1.png"
-import i2 from "../components/img/carousel/i2.png"
-import i3 from "../components/img/carousel/i3.png"
-import i4 from "../components/img/carousel/i4.png"
-import i5 from "../components/img/carousel/i5.png" 
+import i1 from '../components/img/carousel/i1.png'
+import i2 from '../components/img/carousel/i2.png'
+import i3 from '../components/img/carousel/i3.png'
+import i4 from '../components/img/carousel/i4.png'
+import i5 from '../components/img/carousel/i5.png'
 
 export default {
   data() {
@@ -19,9 +19,7 @@ export default {
       produtos: [],
       images: [], // Your array of images with "image_url"
       currentIndex: 0,
-      slideWidth: 100,
-
-      
+      slideWidth: 100
     }
   },
   async created() {
@@ -29,45 +27,38 @@ export default {
     this.categorias = await categoriaApi.buscarTodasAsCategorias()
     console.log(this.categorias)
     this.produtos = await produtoApi.buscarTodosOsProdutos()
-    this.images = 
-    [i1, i2, i3, i4, i5 ]
+    this.images = [i1, i2, i3, i4, i5]
   },
   methods: {
     prevSlide() {
-      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+      this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length
     },
     nextSlide() {
-      this.currentIndex = (this.currentIndex + 1) % this.images.length;
-    },
+      this.currentIndex = (this.currentIndex + 1) % this.images.length
+    }
   },
   computed: {
     innerStyles() {
       return {
         transform: `translateX(-${this.currentIndex * this.slideWidth}%)`,
-        transition: "transform 0.3s ease-in-out",
-      };
-    },
-  },
+        transition: 'transform 0.3s ease-in-out'
+      }
+    }
+  }
 }
 </script>
 <template>
-     <div class="carousel-container">
+  <div class="carousel-container">
     <div class="carousel">
       <div class="carousel-inner" :style="innerStyles">
-        <div
-          v-for="(image, index) in images"
-          :key="index"
-          class="carousel-slide"
-        >
+        <div v-for="(image, index) in images" :key="index" class="carousel-slide">
           <img :src="image" alt="Slide Image" class="slide-image" />
         </div>
       </div>
       <button class="next-button" @click="nextSlide">&gt;</button>
       <button class="prev-button" @click="prevSlide">&lt;</button>
-
     </div>
   </div>
-
 
   <div class="h1lancamentos">
     <h1>Lançamentos</h1>
@@ -76,17 +67,17 @@ export default {
   <div class="lancamentos">
     <div class="card-produto" v-for="lancamentos in categorias" :key="lancamentos.id">
       <img :src="lancamentos.capa.file" alt="" />
-      <router-link :to="'/produto/' + lancamentos.id_produto">
-        <div class="mid">
-          <h2 class="h1produto">Vestido {{ lancamentos.nome }}</h2>
-        </div>
-        <div class="lefttt">
-          <h3>R${{ lancamentos.preco }},00</h3>
-        </div>
-      </router-link>
+      <div class="mid">
+        <h2 class="h1produto">Vestido {{ lancamentos.nome }}</h2>
+      </div>
+      <div class="lefttt">
+        <h3>R${{ lancamentos.preco }},00</h3>
+      </div>
       <div class="left">
         <div class="right">
-          <button class="buttonCarrinho">Ver Vestido</button>
+          <router-link :to="'/produto/' + lancamentos.id_produto">
+            <button class="buttonCarrinho">Ver Vestido</button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -98,30 +89,26 @@ export default {
   <div class="produtos">
     <div class="card-produto" v-for="destaque in destaques" :key="destaque.id">
       <img :src="destaque.capa.file" alt="" />
-      <router-link :to="'/produto/' + destaque.id_produto">
-        <div class="mid">
-          <h2 class="h1produto">Vestido {{ destaque.nome }}</h2>
-        </div>
-        <div class="lefttt">
-          <h3>R$ {{ destaque.preco }},00</h3>
-        </div>
-      </router-link>
+      <div class="mid">
+        <h2 class="h1produto">Vestido {{ destaque.nome }}</h2>
+      </div>
+      <div class="lefttt">
+        <h3>R$ {{ destaque.preco }},00</h3>
+      </div>
       <div class="left">
         <div class="right">
-          <button class="buttonCarrinho">Ver Vestido</button>
+          <router-link :to="'/produto/' + destaque.id_produto"
+            ><button class="buttonCarrinho">Ver Vestido</button>
+          </router-link>
         </div>
       </div>
-      </div>
-      </div>
-   
-   
-    
+    </div>
+  </div>
 </template>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap');
-
 
 .h1produto {
   margin-top: 2px;
@@ -257,9 +244,7 @@ img {
   overflow: hidden;
   border-radius: 10px;
   margin-top: 20px;
- 
 }
-
 
 .carousel-inner {
   display: flex;
@@ -297,5 +282,4 @@ img {
 .next-button {
   right: 10px;
 }
-
 </style>

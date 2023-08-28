@@ -18,6 +18,8 @@ export default class ProdutoApi {
           accept: 'application/json'
         }
       })
+      console.log(data)
+
       return data
     } else {
       console.log('Não tem token')

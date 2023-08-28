@@ -17,7 +17,7 @@ const router = createRouter({
         {
           path: '/',
           component: HomeView,
-          name: 'Home',
+          name: 'Home'
         },
         {
           path: '/quem-somos',
@@ -55,8 +55,8 @@ const router = createRouter({
           path: '/carrinho',
           name: 'CarrinhoView',
           component: () => import('../views/CarrinhoView.vue')
-        },
-              ]
+        }
+      ]
     },
     {
       path: '/',
