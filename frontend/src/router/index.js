@@ -19,7 +19,6 @@ const router = createRouter({
           path: '/',
           component: HomeView,
           name: 'Home',
-          beforeEnter: isAuthenticated
         },
         {
           path: '/quem-somos',
@@ -34,10 +33,9 @@ const router = createRouter({
           beforeEnter: isAuthenticated
         },
         {
-          path: '/produto/:id',
+          path: '/produto/',
           name: 'ProdutoView',
-          component: ProdutoView,
-          beforeEnter: isAuthenticated
+          component: () => import('../views/ProdutoView.vue')
         },
         {
           path: '/noivas',

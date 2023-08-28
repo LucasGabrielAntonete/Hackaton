@@ -1,7 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-
-const showDropdown = ref(false)
+import { onMounted } from 'vue'
 
 function getHeightHeader() {
   const header = document.querySelector('header')
@@ -30,10 +28,10 @@ onMounted(() => {
   <header>
     <div class="header">
       <RouterLink :to="{ name: 'Home' }">
-      <div class="logo" >
-        <h1>Momento especial</h1>
-        <h4>Ateliê</h4>
-      </div>
+        <div class="logo">
+          <h1>Momento especial</h1>
+          <h4>Ateliê</h4>
+        </div>
       </RouterLink>
       <div class="search">
         <input type="text" class="search-input" placeholder="O que você está buscando?" />
@@ -126,20 +124,14 @@ onMounted(() => {
       </div>
     </div>
     <nav class="menu">
-    <RouterLink :to="{ name: 'Home' }">
-    <button class="component-nav">Início</button>
-    </RouterLink>
-    <RouterLink :to="{ name: 'Home' }">
-    <button class="component-nav vestidos" @click="showDropdown = !showDropdown">
-      <p>
-        Vestidos        
-      </p>
-    </button>
-  </RouterLink>
-
-    <button class="component-nav">Lançamentos</button>
-
-  </nav>
+      <button class="component-nav" @click="$router.push({ name: 'Home' })">
+        Home
+      </button>
+      <button class="component-nav" @click="$router.push({ name: 'DebutantesView' })">
+        Debutantes
+      </button>
+      <button class="component-nav" @click="$router.push({ name: 'NoivasView' })">Noivas</button>
+    </nav>
   </header>
 
   <!-- <div class="sticky top-0 bg-mantle shadow-lg ">
@@ -209,11 +201,6 @@ h5 {
   padding: 15px;
   cursor: pointer;
 }
-.vestidos {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 .menu {
   display: flex;
   column-gap: 200px;
@@ -223,13 +210,13 @@ h5 {
   margin: 0;
 }
 .component-nav {
-  padding: 2px;
-  border-radius: 5px;
   cursor: pointer;
-  
 }
 .component-nav:hover {
   background-color: rgb(207, 177, 152);
+  border-radius: 10px;
+  transform: scale(1.1);
+  transition: all 0.5s;
 }
 .dropdown {
   position: absolute;
@@ -237,7 +224,7 @@ h5 {
   display: flex;
   flex-direction: row;
   width: 100vw;
-  justify-content: center;  
+  justify-content: center;
   /* padding: 3px; */
   background-color: rgba(212, 186, 163, 1);
   height: 30px;
@@ -246,6 +233,4 @@ h5 {
 .dropdown a:hover {
   background-color: rgb(207, 177, 152);
 }
-
-
 </style>

@@ -81,12 +81,12 @@ export default {
           <h2 class="h1produto">Vestido {{ lancamentos.nome }}</h2>
         </div>
         <div class="lefttt">
-          <h3>R$:{{ lancamentos.preco }},00</h3>
+          <h3>R${{ lancamentos.preco }},00</h3>
         </div>
       </router-link>
       <div class="left">
         <div class="right">
-          <button class="buttonCarrinho">Alugar</button>
+          <button class="buttonCarrinho">Ver Vestido</button>
         </div>
       </div>
     </div>
@@ -103,12 +103,12 @@ export default {
           <h2 class="h1produto">Vestido {{ destaque.nome }}</h2>
         </div>
         <div class="lefttt">
-          <h3>R$: {{ destaque.preco }},00</h3>
+          <h3>R$ {{ destaque.preco }},00</h3>
         </div>
       </router-link>
       <div class="left">
         <div class="right">
-          <button class="buttonCarrinho">Alugar</button>
+          <button class="buttonCarrinho">Ver Vestido</button>
         </div>
       </div>
       </div>
@@ -211,8 +211,8 @@ img {
 .buttonCarrinho {
   background-color: rgba(212, 186, 163, 1);
   border-radius: 30px;
-  height: 30px;
-  width: 100px;
+  height: 35px;
+  width: 150px;
   padding: 0 20px;
   position: absolute;
   margin-top: 30px;

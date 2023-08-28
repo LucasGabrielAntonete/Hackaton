@@ -64,7 +64,7 @@ export default {
       </router-link>
       <div class="left">
         <div class="right">
-          <button class="buttonCarrinho">Alugar</button>
+          <button class="buttonCarrinho">Ver Mais</button>
         </div>
       </div>
     </div>
@@ -186,8 +186,8 @@ img {
 .buttonCarrinho {
   background-color: rgba(212, 186, 163, 1);
   border-radius: 30px;
-  height: 30px;
-  width: 100px;
+  height: 35px;
+  width: 150px;
   padding: 0 20px;
   position: absolute;
   margin-top: 30px;
