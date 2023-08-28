@@ -17,6 +17,9 @@ def get_cart(request):
                 'produto_id': item.produto.id_produto,
                 'nome': item.produto.nome,
                 'capa': item.produto.capa.url,
+                'preco': item.produto.preco,
+                'descricao': item.produto.descricao,
+                'id': item.produto.id_produto,
             })
         return Response(cart_data)
     except Compra.DoesNotExist:

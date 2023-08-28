@@ -6,14 +6,19 @@ export default {
     return {
       produto: {
         capa: {}
-      }
+      },
+      tamanhoEscolhido: 0,
     }
   },
   mounted() {
     this.buscarProduto()
   },
   methods: {
-    async buscarProduto() {
+    async escolherTamanho(tamanho){
+      this.tamanhoEscolhido = tamanho
+      console.log(this.tamanhoEscolhido)
+    },
+    async buscarProduto() { 
       const produtoId = this.$route.params.id
       const token = localStorage.getItem('token')
       try {
@@ -51,6 +56,7 @@ export default {
             produto_id: Number(produtoId),
             quantidade: 1, 
             usuario: usuarioId,
+            tamanho: this.tamanhoEscolhido
           },
           {
             headers: {
@@ -70,9 +76,100 @@ export default {
 </script>
 
 <template>
-  <h1>Produtos</h1>
-  <hr />
-  <h1>{{ produto.nome }}</h1>
-  <img :src="produto.capa.file" alt="" />
-  <button @click="addToCart">Adicionar ao Carrinho</button>
+  
+  <div class="produto">
+    <img :src="produto.capa.file" alt="" />
+    <div class="info">
+      <h1 class="nome">{{ produto.nome }}</h1>
+      <h1 class="preco">R${{ produto.preco }}</h1>
+      <h1 class="desc">{{ produto.descricao }}</h1>
+      <hr>
+      <div class="tamanhos">
+          <div v-for="i in produto.tamanho" :key="i.id">
+        <h1 class="tamanho" @click="escolherTamanho(i.id)">{{ i.tamanho }}</h1>
+        </div>
+    </div>
+    <div class="comprar"><button @click="addToCart">Adicionar ao Carrinho</button></div>
+
+  </div>
+</div>
 </template>
+
+<style scoped>
+.comprar{
+  background-color: rgba(212, 186, 163, 1);
+  width: fit-content;
+  padding: 5px;
+  font-size: large;
+  border: 1px solid rgba(212, 186, 163, 1);
+  border-radius: 15px;
+  margin-top: 10px;
+}
+
+hr{
+  width: 50%;
+  margin: 20px;
+  padding: 0;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-bottom: 20px;}
+.nome{
+  font-size: 30px;
+  line-height: 50%;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.desc{
+  width: 50%;
+}
+
+.tamanhos{
+  display:flex;
+  flex-direction: row;
+  gap: 30px;
+}
+.tamanho{
+  border: 1px solid black;
+  border-radius: 100%;
+  font-size: 20px;
+  margin: 0;
+  padding: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.tamanho:active{
+  background-color: rgba(212, 186, 163, 1);
+}
+
+
+
+
+.preco{
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+.produto{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 80%;
+  margin: 50px auto;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+img{
+  width: 30%;
+  border-radius: 10px;
+}
+</style>
