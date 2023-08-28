@@ -41,7 +41,7 @@ export default {
         const produtoId = this.$route.params.id
         const decodedToken = jwtDecode(token)
         const usuarioId = decodedToken.user_id
-
+      
         const resposta = await axios.get(`/produtos/${produtoId}/`, {
           headers: {
             Authorization: `Bearer ${token}`,

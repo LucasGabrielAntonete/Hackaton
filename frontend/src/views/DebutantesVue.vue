@@ -27,17 +27,17 @@ export default {
   <div class="produtos">
     <div class="card-produto" v-for="debutante in debutantes" :key="debutante.id">
       <img :src="debutante.capa.file" alt="" />
-      <router-link :to="'/api/produtos/por-categoria/2/'">
+      
         <div class="mid">
         <h2 class="h1produto">Vestido {{ debutante.nome }}</h2>
       </div>
       <div class="lefttt">
         <h3>R$:{{ debutante.preco }},00</h3>
       </div>
-      </router-link>
+    
       <div class="left">
         <div class="right">
-          <button class="buttonCarrinho">Ver Vestido</button>
+          <router-link :to="'/produto/'"><button class="buttonCarrinho" >Ver Vestido</button></router-link>
         </div>
       </div>
     </div>
