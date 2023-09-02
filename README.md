@@ -1,5 +1,5 @@
 # Hackton2022
-Projeto do Hackton2022, feito pela equipe TechNinjas 
+Projeto do Hackton2022, feito pela equipe TechNinjas...
 
 
 &nbsp;
